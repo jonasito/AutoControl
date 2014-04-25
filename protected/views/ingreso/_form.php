@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div class="well">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'ingreso-form',
@@ -15,41 +15,41 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'v_patente'); ?>
 		<?php echo $form->textField($model,'v_patente',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'v_patente'); ?>
 	</div>
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'ing_fecha'); ?>
 		<?php echo $form->textField($model,'ing_fecha'); ?>
 		<?php echo $form->error($model,'ing_fecha'); ?>
 	</div>
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'ing_hora_ing'); ?>
 		<?php echo $form->textField($model,'ing_hora_ing'); ?>
 		<?php echo $form->error($model,'ing_hora_ing'); ?>
 	</div>
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'ing_hora_sal'); ?>
 		<?php echo $form->textField($model,'ing_hora_sal'); ?>
 		<?php echo $form->error($model,'ing_hora_sal'); ?>
 	</div>
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'ing_numero_est'); ?>
 		<?php echo $form->textField($model,'ing_numero_est'); ?>
 		<?php echo $form->error($model,'ing_numero_est'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 

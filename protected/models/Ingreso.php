@@ -60,12 +60,12 @@ class Ingreso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ing_codigo' => 'Ing Codigo',
-			'v_patente' => 'V Patente',
-			'ing_fecha' => 'Ing Fecha',
-			'ing_hora_ing' => 'Ing Hora Ing',
-			'ing_hora_sal' => 'Ing Hora Sal',
-			'ing_numero_est' => 'Ing Numero Est',
+			'ing_codigo' => 'Codigo',
+			'v_patente' => 'Patente',
+			'ing_fecha' => 'Fecha',
+			'ing_hora_ing' => 'Hora Ingreso',
+			'ing_hora_sal' => 'Hora Salida',
+			'ing_numero_est' => 'Numero Estacionamiento',
 		);
 	}
 

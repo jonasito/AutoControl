@@ -3,7 +3,7 @@
 /* @var $data Ingreso */
 ?>
 
-<div class="view">
+<div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ing_codigo')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->ing_codigo), array('view', 'id'=>$data->ing_codigo)); ?>

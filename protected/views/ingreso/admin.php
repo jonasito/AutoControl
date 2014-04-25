@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Ingreso', 'url'=>array('index')),
-	array('label'=>'Create Ingreso', 'url'=>array('create')),
+	array('label'=>'Listar Ingreso', 'url'=>array('index')),
+	array('label'=>'Crear Ingreso', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,33 +26,33 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Ingresos</h1>
+<h1>Administrar Ingresos</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
 	'id'=>'ingreso-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'ing_codigo',
-		'v_patente',
-		'ing_fecha',
-		'ing_hora_ing',
-		'ing_hora_sal',
-		'ing_numero_est',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+    'type'=>'striped bordered condensed',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'template'=>"{items}",
+    'columns'=>array(
+        //array('name'=>'ing_codigo', 'header'=>'Codigo'),
+        array('name'=>'v_patente', 'header'=>'Patente'),
+        array('name'=>'ing_fecha', 'header'=>'Fecha'),
+        array('name'=>'ing_hora_ing', 'header'=>'Hora ingreso'),
+        array('name'=>'ing_hora_sal', 'header'=>'Hora salida'),
+        array('name'=>'ing_numero_est', 'header'=>'Estacionamiento'),
+        array(
+        	'header'=>'Opciones',
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+        ),
+    ),
 )); ?>

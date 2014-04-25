@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Cliente Premia',
+	'Cliente Premium',
 );
 
 $this->menu=array(
-	array('label'=>'Create ClientePremium', 'url'=>array('create')),
-	array('label'=>'Manage ClientePremium', 'url'=>array('admin')),
+	array('label'=>'Crear Cliente Premium', 'url'=>array('create')),
+	array('label'=>'Administrar Cliente Premium', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Cliente Premia</h1>
+<h1>Cliente Premium</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

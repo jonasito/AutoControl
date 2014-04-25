@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ClientePremium', 'url'=>array('index')),
-	array('label'=>'Manage ClientePremium', 'url'=>array('admin')),
+	array('label'=>'Listar Cliente Premium', 'url'=>array('index')),
+	array('label'=>'Administrar Cliente Premium', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create ClientePremium</h1>
+<h1>Registrar Cliente Premium</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

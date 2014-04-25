@@ -62,13 +62,13 @@ class ClientePremium extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cli_rut' => 'Cli Rut',
-			'cli_nombre' => 'Cli Nombre',
-			'cli_apellido' => 'Cli Apellido',
-			'cli_telefono' => 'Cli Telefono',
-			'cli_direccion' => 'Cli Direccion',
-			'cli_email' => 'Cli Email',
-			'cli_contraseña' => 'Cli Contraseña',
+			'cli_rut' => 'Rut',
+			'cli_nombre' => 'Nombre',
+			'cli_apellido' => 'Apellido',
+			'cli_telefono' => 'Telefono',
+			'cli_direccion' => 'Direccion',
+			'cli_email' => 'Email',
+			'cli_contraseña' => 'Contraseña',
 		);
 	}
 

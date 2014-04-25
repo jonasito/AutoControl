@@ -3,7 +3,7 @@
 /* @var $data ClientePremium */
 ?>
 
-<div class="view">
+<div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cli_rut')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->cli_rut), array('view', 'id'=>$data->cli_rut)); ?>

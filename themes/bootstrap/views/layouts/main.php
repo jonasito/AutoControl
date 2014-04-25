@@ -22,6 +22,10 @@
                 array('label'=>'Home', 'url'=>array('/site/index')),
                 array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
+                array('label'=>'Administrador', 'url'=>array('/administrador/index')),
+                array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index')),
+                array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
+                array('label'=>'Servicios', 'url'=>array('/servicios/index')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),

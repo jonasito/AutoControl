@@ -3,8 +3,8 @@
 /* @var $data Administrador */
 ?>
 
-<div class="view">
-
+<div class="table table-bordered table-striped">
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_rut')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->admin_rut), array('view', 'id'=>$data->admin_rut)); ?>
 	<br />
@@ -15,10 +15,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_apellido')); ?>:</b>
 	<?php echo CHtml::encode($data->admin_apellido); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_contraseña')); ?>:</b>
-	<?php echo CHtml::encode($data->admin_contraseña); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_estacionamientos')); ?>:</b>

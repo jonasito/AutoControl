@@ -3,16 +3,16 @@
 /* @var $model Administrador */
 
 $this->breadcrumbs=array(
-	'Administradors'=>array('index'),
-	'Create',
+	'Administrador'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Administrador', 'url'=>array('index')),
-	array('label'=>'Manage Administrador', 'url'=>array('admin')),
+	array('label'=>'Listar Administrador', 'url'=>array('index')),
+	array('label'=>'Administrar Administrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Administrador</h1>
+<h1>Crear Administrador</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

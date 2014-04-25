@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Administradors',
+	'Administrador',
 );
 
 $this->menu=array(
-	array('label'=>'Create Administrador', 'url'=>array('create')),
-	array('label'=>'Manage Administrador', 'url'=>array('admin')),
+	array('label'=>'Crear Administrador', 'url'=>array('create')),
+	array('label'=>'Administrar Administrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Administradors</h1>
+<h1>Administrador</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

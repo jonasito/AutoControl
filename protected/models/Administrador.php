@@ -56,11 +56,11 @@ class Administrador extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'admin_rut' => 'Admin Rut',
-			'admin_nombre' => 'Admin Nombre',
-			'admin_apellido' => 'Admin Apellido',
-			'admin_contraseña' => 'Admin Contraseña',
-			'admin_estacionamientos' => 'Admin Estacionamientos',
+			'admin_rut' => 'Rut',
+			'admin_nombre' => 'Nombre',
+			'admin_apellido' => 'Apellido',
+			'admin_contraseña' => 'Contraseña',
+			'admin_estacionamientos' => 'N° Estacionamientos',
 		);
 	}
 

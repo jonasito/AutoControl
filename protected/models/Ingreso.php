@@ -31,8 +31,9 @@ class Ingreso extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
+		//ing_fecha, ing_hora_ing, en required
 		return array(
-			array('v_patente, ing_fecha, ing_hora_ing, ing_numero_est', 'required'),
+			array('v_patente,ing_numero_est', 'required'),
 			array('ing_numero_est', 'numerical', 'integerOnly'=>true),
 			array('v_patente', 'length', 'max'=>10),
 			array('ing_hora_sal', 'safe'),

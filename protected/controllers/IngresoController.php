@@ -69,7 +69,11 @@ class IngresoController extends Controller
 
 		if(isset($_POST['Ingreso']))
 		{
+			$fecha=date('d-m-Y');
+			$hora = date('H:i:s'); 
 			$model->attributes=$_POST['Ingreso'];
+			$model->ing_fecha=$fecha;
+			$model->ing_hora_ing=$hora;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->ing_codigo));
 		}

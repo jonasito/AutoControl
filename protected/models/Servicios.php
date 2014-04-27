@@ -99,6 +99,16 @@ class Servicios extends CActiveRecord
 		));
 	}
 
+	public function serviciosActivos(){
+		$fecha=$date('d-m-Y');
+	    $criteria=new CDbCriteria;
+	    $criteria->select = "ser_id,ser_nombre,ser_valor";
+	    $criteria->condition = 'ser_fecha_inicio<=:fservicio AND ser_fecha_termino>=:fservicio';
+		$criteria->params = array(':fservicio'=>$fecha);
+	    $servi=Servicios::model()->findAll($criteria);
+	    return $servi;
+  	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

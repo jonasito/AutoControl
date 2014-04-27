@@ -24,7 +24,16 @@
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index')),
                 array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index')),
-                array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
+                //array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
+                array('label'=>'Ingresos', 'url'=>array('/ingreso/index'), 'items'=>array(
+                    array('label'=>'Registrar ingreso', 'url'=>array('/ingreso/create')),
+                    array('label'=>'Listar ingresos', 'url'=>array('/ingreso/index')),
+                    array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
+                    '-------',
+                    array('label'=>'Emitir boleta', 'url'=>'#'),
+                )),
+
+
                 array('label'=>'Servicios', 'url'=>array('/servicios/index')),
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

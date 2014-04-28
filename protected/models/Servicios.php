@@ -99,8 +99,7 @@ class Servicios extends CActiveRecord
 		));
 	}
 
-	public function serviciosActivos(){
-		$fecha=$date('d-m-Y');
+	public function serviciosActivos($fecha){
 	    $criteria=new CDbCriteria;
 	    $criteria->select = "ser_id,ser_nombre,ser_valor";
 	    $criteria->condition = 'ser_fecha_inicio<=:fservicio AND ser_fecha_termino>=:fservicio';

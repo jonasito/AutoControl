@@ -6,9 +6,8 @@ $hora = date('H:i:s');
 /* @var $form CActiveForm */
 ?>
 
-<div class="well">
-
 	<?php /** @var BootActiveForm $form */
+	//$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	    'id'=>'ingreso-form',
 	    'htmlOptions'=>array('class'=>'well'),
@@ -25,6 +24,19 @@ $hora = date('H:i:s');
 	<?php //echo $form->textFieldRow($model, 'ing_hora_sal', array('class'=>'span3')); ?>
 	<?php echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3')); ?>
 
+	<?php
+	$id=23;
+	$valor='sopa'; ?>
+
+	<label class="checkbox ">
+	  <input type="checkbox" id='<?php $id?>' value='<?php $id ?>' > <?php echo $id ?>
+	</label>
+	<label class="checkbox ">
+	  <input type="checkbox" id="inlineCheckbox2" value="servicio 2"> 2
+	</label>
+	<label class="checkbox ">
+	  <input type="checkbox" id="inlineCheckbox3" value="servicio 3"> 3
+	</label>
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
@@ -36,8 +48,6 @@ $hora = date('H:i:s');
 	<?php //$this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Login')); ?>
 	 
 	<?php $this->endWidget(); ?>
-
-</div><!-- form -->
 
 
 

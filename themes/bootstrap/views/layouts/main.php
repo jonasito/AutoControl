@@ -31,6 +31,7 @@
                     array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
                     '-------',
                     array('label'=>'Emitir boleta', 'url'=>'#'),
+                    array('label'=>'prueba', 'url'=>array('/ingreso/prueba')),
                 )),
 
 

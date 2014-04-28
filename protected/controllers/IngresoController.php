@@ -36,7 +36,7 @@ class IngresoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','prueba'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -160,7 +160,23 @@ class IngresoController extends Controller
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
+
 	}
+
+
+	public function actionPrueba()
+	{
+		//echo("paso");
+	$fecha=date('d-m-Y');
+	$model=Servicios::model()->serviciosActivos($fecha);
+	    //if($model===null)
+	      //throw new CHttpException(404,'Sin servicios.');
+	    
+	    $this->render('prueba',array(
+			'model'=>$model,
+		));
+	}
+
 
 	/**
 	 * Performs the AJAX validation.

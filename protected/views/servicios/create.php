@@ -3,16 +3,16 @@
 /* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicioses'=>array('index'),
-	'Create',
+	'Servicios'=>array('index'),
+	'Ingresar',
 );
 
 $this->menu=array(
-	array('label'=>'List Servicios', 'url'=>array('index')),
-	array('label'=>'Manage Servicios', 'url'=>array('admin')),
+	array('label'=>'Listar Servicios', 'url'=>array('index')),
+	array('label'=>'Administrar Servicios', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Servicios</h1>
+<h1>Ingresar Servicios</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

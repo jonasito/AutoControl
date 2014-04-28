@@ -3,13 +3,15 @@
 /* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicioses'=>array('index'),
-	'Manage',
+	'Servicios'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List Servicios', 'url'=>array('index')),
-	array('label'=>'Create Servicios', 'url'=>array('create')),
+/* @var $this ServiciosController */
+/* @var $model Servicios */
+	array('label'=>'Listar Servicios', 'url'=>array('index')),
+	array('label'=>'Ingresar Servicios', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,33 +28,31 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Servicioses</h1>
+<h1>Administrar Servicios</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'servicios-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'ser_id',
-		'ser_nombre',
-		'ser_descripcion',
-		'ser_valor',
-		'ser_fecha_inicio',
-		'ser_fecha_termino',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+<?php $this->widget('bootstrap.widgets.TbGridView', array(
+    'type'=>'striped bordered condensed',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'template'=>"{items}",
+    'columns'=>array(
+        array('name'=>'ser_id', 'header'=>'Id'),
+        array('name'=>'ser_nombre', 'header'=>'Nombre'),
+        array('name'=>'ser_descripcion', 'header'=>'Descripción'),
+        array('name'=>'ser_valor', 'header'=>'Valor'),
+        array('name'=>'ser_fecha_inicio', 'header'=>'Fecha inicio'),
+        array('name'=>'ser_fecha_termino', 'header'=>'Fecha término'),
+        array(
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+        ),
+    ),
 )); ?>

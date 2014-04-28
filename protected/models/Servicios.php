@@ -61,12 +61,12 @@ class Servicios extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ser_id' => 'Ser',
-			'ser_nombre' => 'Ser Nombre',
-			'ser_descripcion' => 'Ser Descripcion',
-			'ser_valor' => 'Ser Valor',
-			'ser_fecha_inicio' => 'Ser Fecha Inicio',
-			'ser_fecha_termino' => 'Ser Fecha Termino',
+			'ser_id' => 'Id',
+			'ser_nombre' => 'Nombre',
+			'ser_descripcion' => 'Descripcion',
+			'ser_valor' => 'Valor',
+			'ser_fecha_inicio' => 'Fecha Inicio',
+			'ser_fecha_termino' => 'Fecha Termino',
 		);
 	}
 

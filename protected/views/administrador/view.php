@@ -29,14 +29,3 @@ $this->menu=array(
 
     ),
 )); ?>
-
-<?php /*$this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'admin_rut',
-		'admin_nombre',
-		'admin_apellido',
-		'admin_contraseña',
-		'admin_estacionamientos',
-	),
-)); */?>

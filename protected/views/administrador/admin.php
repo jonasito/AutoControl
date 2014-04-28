@@ -55,19 +55,3 @@ $('.search-form form').submit(function(){
         ),
     ),
 )); ?>
-
-<?php /*$this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'administrador-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'admin_rut',
-		'admin_nombre',
-		'admin_apellido',
-		'admin_contraseña',
-		'admin_estacionamientos',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-));*/ ?>

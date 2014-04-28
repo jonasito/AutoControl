@@ -1,4 +1,6 @@
 <?php
+Yii::app()->clientScript->registerCoreScript('jquery');
+Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/rut.js');
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 /* @var $form CActiveForm */
@@ -56,3 +58,10 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<script> $("input[name ='Administrador[admin_rut]']").rut();
+
+
+
+
+ </script>

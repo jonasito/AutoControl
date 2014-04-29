@@ -11,7 +11,7 @@ $hora = date('H:i:s');
 	$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	    'id'=>'ingreso-form',
 	    'htmlOptions'=>array('class'=>'well'),
-	    'enableAjaxValidation'=>false,
+	    'enableAjaxValidation'=>true,
 	)); ?>
 
 	<p class="note">Los campos <span class="required">*</span> son obligatorios.</p>

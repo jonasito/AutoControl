@@ -32,7 +32,7 @@ class IngresoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('admin','delete','prueba','servicios','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -129,13 +129,9 @@ class IngresoController extends Controller
 			}
 		}
 			
-		
-		else{
-			//$serv=Servicios::model()->serviciosActivos($fecha);
-			$this->render('create',array(
+		$this->render('create',array(
 				'model'=>$model,
 			));	
-		}
 	}
 
 	/**

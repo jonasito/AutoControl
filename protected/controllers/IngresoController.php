@@ -111,7 +111,7 @@ class IngresoController extends Controller
 		if(isset($_POST['Ingreso']))
 		{
 			$fecha=date('d-m-Y');
-			$hora = date('H:i:s'); 
+			$hora=date("H:i:s",time()-21600);
 			$model->attributes=$_POST['Ingreso'];
 			$model->ing_fecha=$fecha;
 			$model->ing_hora_ing=$hora;
@@ -131,7 +131,12 @@ class IngresoController extends Controller
 				$this->redirect(array('view','id'=>$model->ing_codigo));
 				}
 			}
-			else $this->render('create',array('model'=>$model, ));	
+			
+			else {
+				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un numero de estacionamiento valido.');
+				//throw new CHttpException(403, 'No se posee permisos');
+				//$this->render('create',array('model'=>$model, ));
+			}	
 		}
 			
 		$this->render('create',array(

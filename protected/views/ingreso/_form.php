@@ -1,6 +1,7 @@
 <?php
 $fecha=date('d-m-Y');
-$hora = date('H:i:s'); 
+$hora=date("H:i:s",time()-21600);
+
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 /* @var $form CActiveForm */
@@ -44,21 +45,12 @@ $hora = date('H:i:s');
 
 
 
-
-
 	<div class="buttons">
 		<?php //echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 		<?php echo CHtml::submitButton('Generar'); ?>
 		<?php echo CHtml::resetButton('Limpiar'); ?>
 	</div>
 
-	<?php //echo $form->textFieldRow($model, 'textField', array('class'=>'span3')); ?>
-	<?php //echo $form->passwordFieldRow($model, 'password', array('class'=>'span3')); ?>
-	<?php //echo $form->checkboxRow($model, 'checkbox'); ?>
-	<?php //$this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'label'=>'Login')); ?>
-	 
 	<?php $this->endWidget(); ?>
-
-
 
 

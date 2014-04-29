@@ -24,22 +24,32 @@ $hora = date('H:i:s');
 	<?php //echo $form->textFieldRow($model, 'ing_hora_sal', array('class'=>'span3')); ?>
 	<?php echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3')); ?>
 
-	<?php
-	$id=23;
-	$valor='sopa'; ?>
 
-	<label class="checkbox ">
-	  <input type="checkbox" id='<?php $id?>' value='<?php $id ?>' > <?php echo $id ?>
-	</label>
-	<label class="checkbox ">
-	  <input type="checkbox" id="inlineCheckbox2" value="servicio 2"> 2
-	</label>
-	<label class="checkbox ">
-	  <input type="checkbox" id="inlineCheckbox3" value="servicio 3"> 3
-	</label>
+
+
+	<?php
+    $serv=Servicios::model()->serviciosActivos($fecha)
+    ?>
+
+    <?php
+    foreach ($serv as $value) { ?>
+
+    <label class="checkbox ">
+      <input type="checkbox" name="numero[]" value= <?php echo $value->ser_id ?> > <?php echo $value->ser_nombre." $".$value->ser_valor ?>
+    <!-- usar split y poner el id $model->ing_codigo-->
+    </label>
+
+    <?php } ?>
+
+
+
+
+
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php //echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton('Generar'); ?>
+		<?php echo CHtml::resetButton('Limpiar'); ?>
 	</div>
 
 	<?php //echo $form->textFieldRow($model, 'textField', array('class'=>'span3')); ?>

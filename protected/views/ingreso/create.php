@@ -2,10 +2,7 @@
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 
-$this->breadcrumbs=array(
-	'Ingresos'=>array('index'),
-	'Create',
-);
+
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),

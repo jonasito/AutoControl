@@ -1,11 +1,8 @@
 <?php
 /* @var $this IngresoController */
 /* @var $model Ingreso */
+$fecha=date('d-m-Y');
 
-$this->breadcrumbs=array(
-	'Ingresos'=>array('index'),
-	$model->ing_codigo,
-);
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
@@ -29,3 +26,6 @@ $this->menu=array(
         array('name'=>'ing_numero_est', 'label'=>'Estacionamiento'),
     ),
 )); ?>
+
+<?php //echo $this->renderPartial('_agregarServicios', array('model'=>$model)); ?>
+

@@ -2,11 +2,6 @@
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 
-$this->breadcrumbs=array(
-	'Ingresos'=>array('index'),
-	$model->ing_codigo=>array('view','id'=>$model->ing_codigo),
-	'Update',
-);
 
 $this->menu=array(
 	array('label'=>'List Ingreso', 'url'=>array('index')),

@@ -36,7 +36,7 @@ class IngresoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','prueba'),
+				'actions'=>array('admin','delete','prueba','servicios'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -51,9 +51,48 @@ class IngresoController extends Controller
 	 */
 	public function actionView($id)
 	{
+		/*$solicita=new Solicita;
+		if(isset($_POST['numero']))
+		{
+			$numero=$_POST["numero"];
+		    $count = count($numero);
+		    for ($i = 0; $i < $count; $i++) {
+		        //echo $numero[$i];
+		    	$parts = explode('#', $numero[$i]);
+		        $solicita->ing_codigo=$parts[1];
+				$solicita->ser_id=$parts[0];
+				$solicita->save();
+		    }
+			/*foreach ($serv as $ser_id => $ser_id) {
+					$solicita->ing_codigo=$id;
+					$solicita->ser_id=$ser_id;
+					$solicita->save();
+				}*/
+		//}
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			//'serv'=>$serv,
 		));
+	}
+
+	public function actionServicios(){
+		//$id=$_GET['r'];
+		$solicita=new Solicita;	
+		
+		$numero=$_POST["numero"];
+		    $count = count($numero);
+		    for ($i = 0; $i < $count; $i++) {
+		        //echo $numero[$i];
+		        $solicita->ing_codigo=$id;
+				$solicita->ser_id=$numero[$i];
+				$solicita->save();
+		    }
+
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+			//'serv'=>$serv,
+		));	
+
 	}
 
 	/**
@@ -63,7 +102,9 @@ class IngresoController extends Controller
 	public function actionCreate()
 	{
 		$model=new Ingreso;
-
+		//$serv=new Servicios;
+		
+		$fecha=date('d-m-Y');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -74,13 +115,27 @@ class IngresoController extends Controller
 			$model->attributes=$_POST['Ingreso'];
 			$model->ing_fecha=$fecha;
 			$model->ing_hora_ing=$hora;
-			if($model->save())
+			if($model->save()){
+				$numero=$_POST["numero"];
+			    $count = count($numero);
+			    for ($i = 0; $i < $count; $i++) {
+			    	$solicita=new Solicita;
+			        //echo $numero[$i];
+			        $solicita->ing_codigo=$model->ing_codigo;
+					$solicita->ser_id=$numero[$i];
+					$solicita->save();
+			    }
 				$this->redirect(array('view','id'=>$model->ing_codigo));
+			}
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+			
+		
+		else{
+			//$serv=Servicios::model()->serviciosActivos($fecha);
+			$this->render('create',array(
+				'model'=>$model,
+			));	
+		}
 	}
 
 	/**

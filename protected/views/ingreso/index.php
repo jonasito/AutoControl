@@ -2,9 +2,7 @@
 /* @var $this IngresoController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Ingresos',
-);
+
 
 $this->menu=array(
 	array('label'=>'Crear Ingreso', 'url'=>array('create')),

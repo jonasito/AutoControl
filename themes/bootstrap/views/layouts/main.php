@@ -19,9 +19,9 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contact', 'url'=>array('/site/contact')),
+                array('label'=>'Inicio', 'url'=>array('/site/index')),
+                array('label'=>'Nosotros', 'url'=>array('/site/page', 'view'=>'about')),
+                array('label'=>'Contacto', 'url'=>array('/site/contact')),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Vehiculos', 'url'=>array('/vehiculoAutorizado/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(

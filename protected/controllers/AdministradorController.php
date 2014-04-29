@@ -70,8 +70,16 @@ class AdministradorController extends Controller
 		if(isset($_POST['Administrador']))
 		{
 			$model->attributes=$_POST['Administrador'];
-			if($model->save())
+			$letras=$this->solo_letras($model->admin_nombre);
+			$letras2=$this->solo_letras($model->admin_apellido);
+			if($letras==1 && $letras2 ==1) {
+				if($model->save())
 				$this->redirect(array('view','id'=>$model->admin_rut));
+			}
+			else{
+				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+			}
+			
 		}
 
 		$this->render('create',array(
@@ -170,4 +178,16 @@ class AdministradorController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function solo_letras($cadena){ 
+		$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+		for ($i=0; $i<strlen($cadena); $i++){ 
+		if (strpos($permitidos, substr($cadena,$i,1))===false){ 
+		//no es válido; 
+		return 0; 
+		} 
+		}  
+		//si estoy aqui es que todos los caracteres son validos 
+		return 1; 
+	}  
 }

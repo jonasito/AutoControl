@@ -33,9 +33,10 @@ class Servicios extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('ser_nombre, ser_descripcion, ser_valor, ser_fecha_inicio, ser_fecha_termino', 'required'),
-			array('ser_valor', 'numerical', 'integerOnly'=>true),
+			array('ser_valor', 'numerical', 'integerOnly'=>true,'message'=>'El valor ingresado debe ser entero'),
 			array('ser_nombre', 'length', 'max'=>50),
 			array('ser_descripcion', 'length', 'max'=>100),
+			array('ser_fecha_inicio','compare','compareValue'=>date('ser_fecha_termino'),'operator'=>'<=','message'=>'La fecha de inicio debe ser menor o igual a la fecha de termino.'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ser_id, ser_nombre, ser_descripcion, ser_valor, ser_fecha_inicio, ser_fecha_termino', 'safe', 'on'=>'search'),

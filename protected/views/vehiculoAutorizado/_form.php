@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div class="well">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'vehiculo-autorizado-form',
@@ -19,25 +19,43 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
+
+
+
+	<?php
+    $cli=ClientePremium::model()->findAll();
+    ?>
+
+    <select name='rut'>
+	    <?php
+	    foreach ($cli as $value) { ?>
+		  <option> <?php echo $value->cli_rut ?> </option>
+	    <?php } ?>
+	</select>
+
+
+
+
+
+	<div class="">
 		<?php echo $form->labelEx($model,'v_patente'); ?>
 		<?php echo $form->textField($model,'v_patente',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'v_patente'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cli_rut'); ?>
-		<?php echo $form->textField($model,'cli_rut',array('size'=>12,'maxlength'=>12)); ?>
-		<?php echo $form->error($model,'cli_rut'); ?>
-	</div>
+	<!--div class="">
+		<?php //echo $form->labelEx($model,'cli_rut'); ?>
+		<?php //echo $form->textField($model,'cli_rut',array('size'=>12,'maxlength'=>12)); ?>
+		<?php //echo $form->error($model,'cli_rut'); ?>
+	</div-->
 
-	<div class="row">
+	<div class="">
 		<?php echo $form->labelEx($model,'tipo'); ?>
 		<?php echo $form->textField($model,'tipo',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'tipo'); ?>
 	</div>
 
-	<div class="row buttons">
+	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 

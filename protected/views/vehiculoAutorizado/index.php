@@ -2,13 +2,9 @@
 /* @var $this VehiculoAutorizadoController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Vehiculo Autorizados',
-);
-
 $this->menu=array(
-	array('label'=>'Create VehiculoAutorizado', 'url'=>array('create')),
-	array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
+	array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('create')),
+	//array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
 );
 ?>
 

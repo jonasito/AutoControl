@@ -2,17 +2,13 @@
 /* @var $this VehiculoAutorizadoController */
 /* @var $model VehiculoAutorizado */
 
-$this->breadcrumbs=array(
-	'Vehiculo Autorizados'=>array('index'),
-	$model->v_patente=>array('view','id'=>$model->v_patente),
-	'Update',
-);
+
 
 $this->menu=array(
-	array('label'=>'List VehiculoAutorizado', 'url'=>array('index')),
-	array('label'=>'Create VehiculoAutorizado', 'url'=>array('create')),
-	array('label'=>'View VehiculoAutorizado', 'url'=>array('view', 'id'=>$model->v_patente)),
-	array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
+	array('label'=>'Listar Vehiculos Autorizados', 'url'=>array('index')),
+	array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('create')),
+	array('label'=>'Ver Vehiculo Autorizado', 'url'=>array('view', 'id'=>$model->v_patente)),
+	//array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
 );
 ?>
 

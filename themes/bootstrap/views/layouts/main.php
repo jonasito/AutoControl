@@ -24,7 +24,10 @@
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Vehiculos', 'url'=>array('/vehiculoAutorizado/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Vehiculos', 'url'=>array('/vehiculoAutorizado/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                    array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('/vehiculoAutorizado/create')),
+                    array('label'=>'Listar Vehiculos', 'url'=>array('/vehiculoAutorizado/index')),
+                )),
                 //array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
                 array('label'=>'Ingresos', 'url'=>array('/ingreso/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar ingreso', 'url'=>array('/ingreso/create')),

@@ -2,14 +2,10 @@
 /* @var $this VehiculoAutorizadoController */
 /* @var $model VehiculoAutorizado */
 
-$this->breadcrumbs=array(
-	'Vehiculo Autorizados'=>array('index'),
-	'Create',
-);
 
 $this->menu=array(
-	array('label'=>'List VehiculoAutorizado', 'url'=>array('index')),
-	array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
+	array('label'=>'Listar Vehiculos Autorizados', 'url'=>array('index')),
+	//array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
 );
 ?>
 

@@ -31,7 +31,7 @@ class VehiculoAutorizado extends CActiveRecord
 		return array(
 			array('v_patente, cli_rut, tipo', 'required'),
 			array('v_patente', 'length', 'max'=>10),
-			array('cli_rut', 'length', 'max'=>12),
+			//array('cli_rut', 'length', 'max'=>12),
 			array('tipo', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

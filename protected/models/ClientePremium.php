@@ -117,4 +117,11 @@ class ClientePremium extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function clientes(){
+	    $criteria=new CDbCriteria;
+	    $criteria->select = "cli_rut";
+	    $clientes=ClientePremium::model()->findAll($criteria);
+	    return $clientes;
+  	}
 }

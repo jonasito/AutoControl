@@ -69,7 +69,9 @@ class VehiculoAutorizadoController extends Controller
 
 		if(isset($_POST['VehiculoAutorizado']))
 		{
+			$rut=$_POST['rut'];
 			$model->attributes=$_POST['VehiculoAutorizado'];
+			$model->cli_rut=$rut;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->v_patente));
 		}

@@ -1,6 +1,6 @@
 <?php
 
-class IngresoController extends Controller
+class VehiculoAutorizadoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,11 +32,11 @@ class IngresoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','delete','prueba','servicios','create','update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','prueba','servicios'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -51,48 +51,9 @@ class IngresoController extends Controller
 	 */
 	public function actionView($id)
 	{
-		/*$solicita=new Solicita;
-		if(isset($_POST['numero']))
-		{
-			$numero=$_POST["numero"];
-		    $count = count($numero);
-		    for ($i = 0; $i < $count; $i++) {
-		        //echo $numero[$i];
-		    	$parts = explode('#', $numero[$i]);
-		        $solicita->ing_codigo=$parts[1];
-				$solicita->ser_id=$parts[0];
-				$solicita->save();
-		    }
-			/*foreach ($serv as $ser_id => $ser_id) {
-					$solicita->ing_codigo=$id;
-					$solicita->ser_id=$ser_id;
-					$solicita->save();
-				}*/
-		//}
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			//'serv'=>$serv,
 		));
-	}
-
-	public function actionServicios(){
-		//$id=$_GET['r'];
-		$solicita=new Solicita;	
-		
-		$numero=$_POST["numero"];
-		    $count = count($numero);
-		    for ($i = 0; $i < $count; $i++) {
-		        //echo $numero[$i];
-		        $solicita->ing_codigo=$id;
-				$solicita->ser_id=$numero[$i];
-				$solicita->save();
-		    }
-
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-			//'serv'=>$serv,
-		));	
-
 	}
 
 	/**
@@ -101,42 +62,21 @@ class IngresoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Ingreso;
-		//$serv=new Servicios;
-		
-		$fecha=date('d-m-Y');
+		$model=new VehiculoAutorizado;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Ingreso']))
+		if(isset($_POST['VehiculoAutorizado']))
 		{
-			$fecha=date('d-m-Y');
-			$hora = date('H:i:s'); 
-			$model->attributes=$_POST['Ingreso'];
-			$model->ing_fecha=$fecha;
-			$model->ing_hora_ing=$hora;
-			if($model->ing_numero_est>=1 && $model->ing_numero_est <= Yii::app()->getSession()->get('est')){
-				if($model->save()){
-				if(isset($_POST['numero'])){
-					$numero=$_POST["numero"];
-				    $count = count($numero);
-				    for ($i = 0; $i < $count; $i++) {
-				    	$solicita=new Solicita;
-				        //echo $numero[$i];
-				        $solicita->ing_codigo=$model->ing_codigo;
-						$solicita->ser_id=$numero[$i];
-						$solicita->save();
-				    }
-				}
-				$this->redirect(array('view','id'=>$model->ing_codigo));
-				}
-			}
-			else $this->render('create',array('model'=>$model, ));	
+			$model->attributes=$_POST['VehiculoAutorizado'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->v_patente));
 		}
-			
+
 		$this->render('create',array(
-				'model'=>$model,
-			));	
+			'model'=>$model,
+		));
 	}
 
 	/**
@@ -151,11 +91,11 @@ class IngresoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Ingreso']))
+		if(isset($_POST['VehiculoAutorizado']))
 		{
-			$model->attributes=$_POST['Ingreso'];
+			$model->attributes=$_POST['VehiculoAutorizado'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->ing_codigo));
+				$this->redirect(array('view','id'=>$model->v_patente));
 		}
 
 		$this->render('update',array(
@@ -182,7 +122,7 @@ class IngresoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Ingreso');
+		$dataProvider=new CActiveDataProvider('VehiculoAutorizado');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -193,10 +133,10 @@ class IngresoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Ingreso('search');
+		$model=new VehiculoAutorizado('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Ingreso']))
-			$model->attributes=$_GET['Ingreso'];
+		if(isset($_GET['VehiculoAutorizado']))
+			$model->attributes=$_GET['VehiculoAutorizado'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -207,40 +147,24 @@ class IngresoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Ingreso the loaded model
+	 * @return VehiculoAutorizado the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Ingreso::model()->findByPk($id);
+		$model=VehiculoAutorizado::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
-
 	}
-
-
-	public function actionPrueba()
-	{
-		//echo("paso");
-	$fecha=date('d-m-Y');
-	$model=Servicios::model()->serviciosActivos($fecha);
-	    //if($model===null)
-	      //throw new CHttpException(404,'Sin servicios.');
-	    
-	    $this->render('prueba',array(
-			'model'=>$model,
-		));
-	}
-
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Ingreso $model the model to be validated
+	 * @param VehiculoAutorizado $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='ingreso-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='vehiculo-autorizado-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

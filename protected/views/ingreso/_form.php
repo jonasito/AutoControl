@@ -22,7 +22,7 @@ $hora = date('H:i:s');
 	<?php echo $form->textFieldRow($model, 'ing_fecha', array('value'=>$fecha, 'disabled'=>'disabled','class'=>'span3')); ?>
 	<?php echo $form->textFieldRow($model, 'ing_hora_ing', array('value'=>$hora, 'disabled'=>'disabled','class'=>'span3')); ?>
 	<?php //echo $form->textFieldRow($model, 'ing_hora_sal', array('class'=>'span3')); ?>
-	<?php echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3')); ?>
+	<?php echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3','hint'=>'Estacionar entre 1 - '.Yii::app()->getSession()->get('est').' ' ) ); ?>
 
 
 

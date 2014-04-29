@@ -24,6 +24,7 @@
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Vehiculos', 'url'=>array('/vehiculoAutorizado/index'),'visible'=>!Yii::app()->user->isGuest),
                 //array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
                 array('label'=>'Ingresos', 'url'=>array('/ingreso/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar ingreso', 'url'=>array('/ingreso/create')),
@@ -31,7 +32,7 @@
                     array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
                     '-------',
                     array('label'=>'Emitir boleta', 'url'=>'#'),
-                    array('label'=>'prueba', 'url'=>array('/ingreso/prueba')),
+                    array('label'=>'prueba ('.Yii::app()->getSession()->get('est').')', 'url'=>array('/ingreso/prueba')),
                 )),
 
 
@@ -57,8 +58,8 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Creado en &copy; <?php echo date('Y'); ?> por Jonas.<br/>
-		100% desarrollado por Jonas.<br/>
+		Creado en &copy; <?php echo date('Y'); ?> por Grupo 8.<br/>
+		Sprint #1.<br/>
 		<?php echo Yii::powered(); ?>
 	</div><!-- footer -->
 

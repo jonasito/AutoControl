@@ -33,7 +33,10 @@ class UserIdentity extends CUserIdentity
 		$user = Administrador::model()->findByAttributes(array('admin_nombre' => $this->username));
         if($user===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if($user->admin_contraseña==$this->password)$this->errorCode=self::ERROR_NONE;
+        else if($user->admin_contraseña==$this->password){
+        	$this->errorCode=self::ERROR_NONE;
+        	$this->inicializaAdmin($user);
+        }
 
         /*else if ($user->check($this->password))
         {
@@ -43,4 +46,19 @@ class UserIdentity extends CUserIdentity
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         return !$this->errorCode;
 	}
+
+	public function inicializaAdmin($user) {
+      /*$admin = array();
+      $admin['rut'] = $user->admin_rut;
+      $admin['nombre'] = $user->admin_nombre;
+      $admin['est'] = $user->admin_estacionamientos;*/
+      Yii::app()->getSession()->add('est', $user->admin_estacionamientos);
+      
+      Yii::app()->user->setState('nombre',$user->admin_nombre);
+      Yii::app()->user->setState('est',$user->admin_estacionamientos);
+      Yii::app()->user->setState('rut',$user->admin_rut);
+      //$this->addToSession('admin', $admin);
+     // return $admin;
+  }
+
 }

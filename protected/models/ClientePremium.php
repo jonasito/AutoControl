@@ -33,10 +33,12 @@ class ClientePremium extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cli_rut, cli_nombre, cli_apellido, cli_telefono, cli_direccion, cli_email, cli_contraseña', 'required'),
-			array('cli_rut', 'length', 'max'=>12),
+
+			array('cli_rut, cli_nombre, cli_apellido, cli_telefono, cli_direccion, cli_email, cli_contraseña', 'required','message'=>'El dato : {attribute} debe ser ingresado'),
+			array('cli_rut', 'length', 'max'=>12,'min'=>12,'tooShort'=>'El Rut debe ser ingresado con puntos y guion'),
 			array('cli_nombre, cli_apellido, cli_direccion, cli_email', 'length', 'max'=>50),
-			array('cli_telefono', 'length', 'max'=>15),
+			array('cli_telefono', 'numerical', 'integerOnly'=>true),
+			array('cli_email','email'),
 			array('cli_contraseña', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -55,6 +57,8 @@ class ClientePremium extends CActiveRecord
 			'vehiculoAutorizados' => array(self::HAS_MANY, 'VehiculoAutorizado', 'cli_rut'),
 		);
 	}
+
+
 
 	/**
 	 * @return array customized attribute labels (name=>label)

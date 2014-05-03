@@ -35,7 +35,7 @@
                     array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
                     '-------',
                     array('label'=>'Emitir boleta', 'url'=>'#'),
-                    array('label'=>'prueba ('.Yii::app()->getSession()->get('est').')', 'url'=>array('/ingreso/prueba')),
+                    array('label'=>'disponibilidad', 'url'=>array('/ingreso/disponibilidad')),
                 )),
 
 

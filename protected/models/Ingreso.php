@@ -100,6 +100,16 @@ class Ingreso extends CActiveRecord
 		));
 	}
 
+	public function disponibilidad($fecha){
+	    $criteria=new CDbCriteria;
+	    $criteria->select = "ing_numero_est";
+	    //$criteria->condition = 'ing_fecha=:fecha AND ing_hora_sal is null';
+	    $criteria->condition = 'ing_fecha=current_date AND ing_hora_sal is null';
+		//$criteria->params = array(':fecha'=>$fecha);
+	    $servi=Ingreso::model()->findAll($criteria);
+	    return $servi;
+  	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

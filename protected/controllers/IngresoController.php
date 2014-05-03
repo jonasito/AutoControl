@@ -28,7 +28,7 @@ class IngresoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','disponibilidad'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -43,6 +43,15 @@ class IngresoController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+
+	public function actionDisponibilidad()
+	{
+		$fecha=date('d-m-Y');
+		$model=Ingreso::model()->disponibilidad($fecha);
+		$this->render('disponibilidad',array(
+			'model'=>$model,
+		));
 	}
 
 	/**

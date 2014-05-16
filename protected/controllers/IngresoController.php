@@ -108,8 +108,7 @@ class IngresoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
-	{
+	public function actionCreate(){
 		$model=new Ingreso;
 		//$serv=new Servicios;
 		
@@ -125,19 +124,25 @@ class IngresoController extends Controller
 			$model->ing_fecha=$fecha;
 			$model->ing_hora_ing=$hora;
 			if($model->ing_numero_est>=1 && $model->ing_numero_est <= Yii::app()->getSession()->get('est')){
-				if($model->save()){
-				if(isset($_POST['numero'])){
-					$numero=$_POST["numero"];
-				    $count = count($numero);
-				    for ($i = 0; $i < $count; $i++) {
-				    	$solicita=new Solicita;
-				        //echo $numero[$i];
-				        $solicita->ing_codigo=$model->ing_codigo;
-						$solicita->ser_id=$numero[$i];
-						$solicita->save();
-				    }
+
+				if($this->patente($model->v_patente)==1){
+					if($model->save()){
+						if(isset($_POST['numero'])){
+							$numero=$_POST["numero"];
+						    $count = count($numero);
+						    for ($i = 0; $i < $count; $i++) {
+						    	$solicita=new Solicita;
+						        //echo $numero[$i];
+						        $solicita->ing_codigo=$model->ing_codigo;
+								$solicita->ser_id=$numero[$i];
+								$solicita->save();
+						    }
+						}
+						$this->redirect(array('view','id'=>$model->ing_codigo));
+					}
 				}
-				$this->redirect(array('view','id'=>$model->ing_codigo));
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');
 				}
 			}
 			
@@ -260,4 +265,16 @@ class IngresoController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function patente($cadena){ 
+		$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ";
+		for ($i=0; $i<strlen($cadena); $i++){ 
+			if (strpos($permitidos, substr($cadena,$i,1))===false ){ 
+			//no es válido; 
+			return 0; 
+			} 
+		}  
+		//si estoy aqui es que todos los caracteres son validos 
+		return 1; 
+	} 
 }

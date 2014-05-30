@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_estacionamientos'); ?>
-		<?php echo $form->textField($model,'admin_estacionamientos'); ?>
+		<?php echo $form->textField($model,'admin_estacionamientos',array('numerical', 'min'=>0, 'intergerOnly'=>true)); ?>
 		<?php echo $form->error($model,'admin_estacionamientos'); ?>
 	</div>
 

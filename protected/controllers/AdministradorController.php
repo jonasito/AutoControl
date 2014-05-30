@@ -72,14 +72,21 @@ class AdministradorController extends Controller
 			$model->attributes=$_POST['Administrador'];
 			$letras=$this->solo_letras($model->admin_nombre);
 			$letras2=$this->solo_letras($model->admin_apellido);
-			if($letras==1 && $letras2 ==1) {
-				if($model->save())
-				$this->redirect(array('view','id'=>$model->admin_rut));
+			if(!($this->validaRut($model->admin_rut)) || ($model->admin_estacionamientos <= 0)) { 
+				if(!$this->validaRut($model->admin_rut))
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingrese un RUT valido');
+				if($model->admin_estacionamientos <= 0)
+					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
 			}
 			else{
-				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+				if($letras==1 && $letras2 ==1) {
+					if($model->save())
+					$this->redirect(array('view','id'=>$model->admin_rut));
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+				}
 			}
-			
 		}
 
 		$this->render('create',array(
@@ -102,8 +109,24 @@ class AdministradorController extends Controller
 		if(isset($_POST['Administrador']))
 		{
 			$model->attributes=$_POST['Administrador'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->admin_rut));
+			$letras=$this->solo_letras($model->admin_nombre);
+			$letras2=$this->solo_letras($model->admin_apellido);
+			if(!($this->validaRut($model->admin_rut)) || ($model->admin_estacionamientos <= 0)) { 
+				if(!$this->validaRut($model->admin_rut))
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingrese un RUT valido');
+				if($model->admin_estacionamientos <= 0)
+					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
+			}
+			else{
+				if($letras == 1 && $letras2 == 1){
+					if($model->save())
+					$this->redirect(array('view','id'=>$model->admin_rut));
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+				}	
+			}
+			
 		}
 
 		$this->render('update',array(
@@ -190,4 +213,42 @@ class AdministradorController extends Controller
 		//si estoy aqui es que todos los caracteres son validos 
 		return 1; 
 	}  
-}
+
+	function validaRut($rut){
+	    if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    $suma=0;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	    	$suma += $elRut{$i}*$factor++;
+	    endfor;
+
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       return false;
+	   }
+	}
+
+	#public function soloPositivos($num){
+	#	if($num <= 0)
+	#		return -1;
+	#	else return 0;
+	#}
+}  
+

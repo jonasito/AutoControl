@@ -57,11 +57,10 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->
+</div><!-- form 
 
-<script> $("input[name ='Administrador[admin_rut]']").rut();
-
-
-
-
+<script> $resutado = $("input[name ='Administrador[admin_rut]']").rut();
+		if(resultado == "control-group error")
+			<?php $model->admin_rut = -1; ?>
  </script>
+-->

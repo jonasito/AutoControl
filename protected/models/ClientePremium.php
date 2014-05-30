@@ -39,7 +39,7 @@ class ClientePremium extends CActiveRecord
 			array('cli_nombre, cli_apellido, cli_direccion, cli_email', 'length', 'max'=>50),
 			array('cli_telefono', 'numerical', 'integerOnly'=>true),
 			array('cli_email','email'),
-			array('cli_contraseña', 'length', 'max'=>10),
+			array('cli_contraseña', 'length', 'max'=>10,'min'=>5,'tooShort'=>'La contraseña debe contener minimo 5 caracteres'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cli_rut, cli_nombre, cli_apellido, cli_telefono, cli_direccion, cli_email, cli_contraseña', 'safe', 'on'=>'search'),

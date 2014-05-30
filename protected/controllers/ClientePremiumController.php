@@ -32,11 +32,11 @@ class ClientePremiumController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array(),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -73,6 +73,15 @@ class ClientePremiumController extends Controller
 
 			$letras=$this->solo_letras($model->cli_nombre);
 			$letras2=$this->solo_letras($model->cli_apellido);
+			if(!$this->validaRut($model->cli_rut) || ($model->cli_telefono<=999999) || ($model->cli_telefono>100000000)){
+				if(!$this->validaRut($model->cli_rut)){
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un rut valido');
+				}
+				if(($model->cli_telefono<=999999) || ($model->cli_telefono>100000000)){
+					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> Ingrese un numero de telefono valido');
+				}
+			}
+			else{
 			if($letras==1 && $letras2 ==1) {
 				if($model->save())
 				$this->redirect(array('view','id'=>$model->cli_rut));
@@ -80,6 +89,7 @@ class ClientePremiumController extends Controller
 			else{
 				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
 			}
+		}
 
 			
 		}
@@ -101,13 +111,29 @@ class ClientePremiumController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ClientePremium']))
-		{
+		if(isset($_POST['ClientePremium'])){
 			$model->attributes=$_POST['ClientePremium'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->cli_rut));
+			$letras=$this->solo_letras($model->cli_nombre);
+			$letras2=$this->solo_letras($model->cli_apellido);
+			if(!$this->validaRut($model->cli_rut) || ($model->cli_telefono<=999999) || ($model->cli_telefono>100000000)){
+				if(!$this->validaRut($model->cli_rut)){
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un rut valido');
+				}					
+				if(($model->cli_telefono<=999999) || ($model->cli_telefono>100000000)){
+					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> Ingrese un numero de telefono valido');
+				}
+			}
+			else{
+				if($letras==1 && $letras2 ==1){
+					if($model->save()){
+						$this->redirect(array('view','id'=>$model->cli_rut));
+					}
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');	
+				}
+			}
 		}
-
 		$this->render('update',array(
 			'model'=>$model,
 		));
@@ -192,4 +218,35 @@ class ClientePremiumController extends Controller
 		//si estoy aqui es que todos los caracteres son validos 
 		return 1; 
 	}  
+
+	function validaRut($rut){
+	    if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    $suma=0;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	    	$suma += $elRut{$i}*$factor++;
+	    endfor;
+	    
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       return false;
+	   }
+	}
 }

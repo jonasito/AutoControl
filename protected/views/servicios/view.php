@@ -30,21 +30,3 @@ $this->menu=array(
     ),
 )); ?>
 
-<?php /*$this->widget('bootstrap.widgets.TbGridView', array(
-    'type'=>'striped bordered condensed',
-    'dataProvider'=>$model->search(),
-    'filter'=>$model,
-    'template'=>"{items}",
-    'columns'=>array(
-        array('name'=>'ser_id', 'header'=>'Id'),
-        array('name'=>'ser_nombre', 'header'=>'Nombre'),
-        array('name'=>'ser_descripcion', 'header'=>'Descripción'),
-        array('name'=>'ser_valor', 'header'=>'Valor'),
-        array('name'=>'ser_fecha_inicio', 'header'=>'Fecha inicio'),
-        array('name'=>'ser_fecha_termino', 'header'=>'Fecha término'),
-        array(
-            'class'=>'bootstrap.widgets.TbButtonColumn',
-            'htmlOptions'=>array('style'=>'width: 50px'),
-        ),
-    ),
-)); */?>

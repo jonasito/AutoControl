@@ -16,7 +16,21 @@ $this->menu=array(
 );
 ?>
 
-<?php $this->widget('bootstrap.widgets.TbGridView', array(
+<h1>Ver Administrador #<?php echo $model->ser_id; ?></h1>
+
+<?php $this->widget('bootstrap.widgets.TbDetailView', array(
+    'data'=>$model,
+    'attributes'=>array(
+        array('name'=>'ser_id', 'label'=>'Id'),
+        array('name'=>'ser_nombre', 'label'=>'Nombre'),
+        array('name'=>'ser_descripcion', 'label'=>'Descripción'),
+        array('name'=>'ser_valor', 'label'=>'Valor'),
+        array('name'=>'ser_fecha_inicio', 'label'=>'Fecha inicio'),
+        array('name'=>'ser_fecha_termino', 'label'=>'Fecha término'),
+    ),
+)); ?>
+
+<?php /*$this->widget('bootstrap.widgets.TbGridView', array(
     'type'=>'striped bordered condensed',
     'dataProvider'=>$model->search(),
     'filter'=>$model,
@@ -33,4 +47,4 @@ $this->menu=array(
             'htmlOptions'=>array('style'=>'width: 50px'),
         ),
     ),
-)); ?>
+)); */?>

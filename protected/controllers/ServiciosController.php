@@ -72,6 +72,7 @@ class ServiciosController extends Controller
 			$model->attributes=$_POST['Servicios'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->ser_id));
+				//$this->actionView($model->ser_id);
 		}
 
 		$this->render('create',array(

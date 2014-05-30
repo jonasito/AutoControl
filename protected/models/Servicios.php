@@ -92,8 +92,8 @@ class Servicios extends CActiveRecord
 		$criteria->compare('ser_nombre',$this->ser_nombre,true);
 		$criteria->compare('ser_descripcion',$this->ser_descripcion,true);
 		$criteria->compare('ser_valor',$this->ser_valor);
-		$criteria->compare('ser_fecha_inicio',$this->ser_fecha_inicio,true);
-		$criteria->compare('ser_fecha_termino',$this->ser_fecha_termino,true);
+		//$criteria->compare('ser_fecha_inicio',$this->ser_fecha_inicio,true);
+		//$criteria->compare('ser_fecha_termino',$this->ser_fecha_termino,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

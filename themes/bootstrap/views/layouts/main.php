@@ -31,15 +31,19 @@
                 //array('label'=>'Ingreso', 'url'=>array('/ingreso/index')),
                 array('label'=>'Ingresos', 'url'=>array('/ingreso/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar ingreso', 'url'=>array('/ingreso/create')),
-                    array('label'=>'Listar ingresos', 'url'=>array('/ingreso/index')),
-                    array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
+                    //array('label'=>'Listar ingresos', 'url'=>array('/ingreso/index')),
+                    array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),/*
                     '-------',
                     array('label'=>'Emitir boleta', 'url'=>'#'),
-                    array('label'=>'disponibilidad', 'url'=>array('/ingreso/disponibilidad')),
+                    array('label'=>'disponibilidad', 'url'=>array('/ingreso/disponibilidad')),*/
                 )),
 
 
-                array('label'=>'Servicios', 'url'=>array('/servicios/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Servicios', 'url'=>array('/servicios/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                    array('label'=>'Registrar servicio', 'url'=>array('/servicios/create')),
+                    array('label'=>'Administrar servicios ', 'url'=>array('/servicios/admin')),
+                )),
+                //array('label'=>'Servicios', 'url'=>array('/servicios/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),

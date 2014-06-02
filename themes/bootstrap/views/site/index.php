@@ -10,9 +10,9 @@ $this->pageTitle=Yii::app()->name;
 <div class="well span 8">
 	<?php $this->widget('bootstrap.widgets.TbCarousel', array(
     'items'=>array(
-        array('image'=>'http://placehold.it/770x400&text=First+thumbnail', 'label'=>'First Thumbnail label', 'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'),
-        array('image'=>'http://placehold.it/770x400&text=Second+thumbnail', 'label'=>'Second Thumbnail label', 'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'),
-        array('image'=>'http://placehold.it/770x400&text=Third+thumbnail', 'label'=>'Third Thumbnail label', 'caption'=>'Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.'),
+        array('image'=>'http://www.caranddriverthef1.com/sites/default/files/aparcamiento.jpg', 'label'=>'Servicios', 'caption'=>'Nuevos y mejores servicios'),
+        array('image'=>'http://downtownlapaz.com/img/renders/ESTACIONAMIENTO1.jpg', 'label'=>'Seguridad', 'caption'=>'Vigilancia 24 horas'),
+        array('image'=>'http://downtownlapaz.com/img/renders/ESTACIONAMIENTO2.jpg', 'label'=>'Cercania', 'caption'=>'Cerca del centro de la ciudad'),
     ),
 )); ?>
 		

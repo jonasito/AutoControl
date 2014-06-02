@@ -2,9 +2,7 @@
 /* @var $this AdministradorController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Administrador',
-);
+
 
 $this->menu=array(
 	array('label'=>'Crear Administrador', 'url'=>array('create')),

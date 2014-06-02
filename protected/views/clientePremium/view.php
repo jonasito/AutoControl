@@ -2,10 +2,7 @@
 /* @var $this ClientePremiumController */
 /* @var $model ClientePremium */
 
-$this->breadcrumbs=array(
-	'Cliente Premium'=>array('index'),
-	$model->cli_rut,
-);
+
 
 $this->menu=array(
 	array('label'=>'Listar Cliente Premium', 'url'=>array('index')),

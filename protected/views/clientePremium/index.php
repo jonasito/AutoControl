@@ -2,9 +2,7 @@
 /* @var $this ClientePremiumController */
 /* @var $dataProvider CActiveDataProvider */
 
-$this->breadcrumbs=array(
-	'Cliente Premium',
-);
+
 
 $this->menu=array(
 	array('label'=>'Crear Cliente Premium', 'url'=>array('create')),

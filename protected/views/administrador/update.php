@@ -2,11 +2,7 @@
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 
-$this->breadcrumbs=array(
-	'Administrador'=>array('index'),
-	$model->admin_rut=>array('view','id'=>$model->admin_rut),
-	'Modificar',
-);
+
 
 $this->menu=array(
 	array('label'=>'Listar Administrador', 'url'=>array('index')),

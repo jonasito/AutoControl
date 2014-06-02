@@ -57,9 +57,9 @@ class VehiculoAutorizado extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'v_patente' => 'V Patente',
-			'cli_rut' => 'Cli Rut',
-			'tipo' => 'Tipo',
+			'v_patente' => 'Patente del vehiculo',
+			'cli_rut' => 'Rut cliente',
+			'tipo' => 'Tipo de vehiculo',
 		);
 	}
 

@@ -58,6 +58,7 @@
 	<div class="">
 		<?php echo $form->labelEx($model,'Contraseña'); ?>
 		<?php echo $form->textField($model,'cli_contraseña',array('size'=>10,'maxlength'=>10)); ?>
+		<?php //echo $form->passwordFieldRow($model,'cli_contraseña'); ?>
 		<?php echo $form->error($model,'cli_contraseña'); ?>
 	</div>
 

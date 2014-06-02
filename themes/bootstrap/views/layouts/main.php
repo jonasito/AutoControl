@@ -20,10 +20,21 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'Inicio', 'url'=>array('/site/index')),
-                array('label'=>'Nosotros', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contacto', 'url'=>array('/site/contact')),
-                array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Nosotros', 'url'=>array('/site/page', 'view'=>'about'),'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Contacto', 'url'=>array('/site/contact'),'visible'=>Yii::app()->user->isGuest),
+                
+                //array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                    array('label'=>'Registrar administrador', 'url'=>array('/administrador/create')),
+                    array('label'=>'Administrar administrador ', 'url'=>array('/administrador/admin')),
+                )),
+
+                //array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                    array('label'=>'Registrar cliente', 'url'=>array('/clientePremium/create')),
+                    array('label'=>'Administrar clientes ', 'url'=>array('/clientePremium/admin')),
+                )),
+
                 array('label'=>'Vehiculos', 'url'=>array('/vehiculoAutorizado/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('/vehiculoAutorizado/create')),
                     array('label'=>'Listar Vehiculos', 'url'=>array('/vehiculoAutorizado/index')),

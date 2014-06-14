@@ -92,6 +92,18 @@ class Administrador extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	public function maximo(){
+		$criteria=new CDbCriteria;
+	    $criteria->select = "admin_estacionamientos";
+	    $totales=Administrador::model()->findAll($criteria);
+	    $max=0;
+		if(!is_null($totales)){
+		    foreach ($totales as $value) {
+		        if($max < $value->admin_estacionamientos) $max=$value->admin_estacionamientos; 
+		    }
+		}
+	    return $max;
+	}
 
 	/**
 	 * Returns the static model of the specified AR class.

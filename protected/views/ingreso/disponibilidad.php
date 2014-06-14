@@ -2,6 +2,7 @@
 <?php 
 //$fecha=date('d-m-Y');
 //$model=Ingreso::model()->disponibilidad($fecha);
+
 if(!is_null($model)){
 foreach ($model as $value) { ?>
 

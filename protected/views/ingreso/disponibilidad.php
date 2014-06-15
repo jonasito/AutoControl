@@ -5,7 +5,7 @@ $libre=Ingreso::model()->disponibilidad();
 
 if(!is_null($libre)){ ?>
 
-<div class="well">
+<div class="well span8">
     <table class="table">
         <thead>
             <tr>

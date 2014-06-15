@@ -123,6 +123,14 @@ class Ingreso extends CActiveRecord
 		return $libre;
   	}
 
+  	public function ocupados(){
+		$criteria=new CDbCriteria;
+	    $criteria->select = "distinct ing_codigo, v_patente";
+	    $criteria->condition = 'ing_hora_sal is null';
+	    $ocupados=Ingreso::model()->findAll($criteria);
+	    return $ocupados;
+  	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

@@ -28,7 +28,7 @@ class IngresoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','disponibilidad'),
+				'actions'=>array('index','view','disponibilidad','cliente'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -59,14 +59,17 @@ class IngresoController extends Controller
 		
 		if(!isset($_POST['numero']))
 		{
-			$id=null;
-			$this->render('boleta',array('id'=>$id));
+			$this->render('boleta');
 		}
 		else{
 			$numero=$_POST["numero"];
 			$id=$numero;
 			
+			$salida=date("H:i:s",time()-21600);
 			$registro=Ingreso::model()->findByPk($id);
+			$registro->ing_hora_sal=$salida;
+			$registro->save();
+
 			$servicios=Ingreso::model()->boleta($id);
 
 			$this->render('viewboleta',array(
@@ -76,6 +79,20 @@ class IngresoController extends Controller
 			//$this->render('boleta',array('id'=>$id));
 		}
 		
+	}
+	public function actionCliente()
+	{
+		
+		if(!isset($_POST['numero']))
+		{
+			$this->render('cliente');
+		}
+		else{
+			$numero=$_POST["numero"];
+			$id=$numero;
+			$this->render('view',array(
+			'model'=>$this->loadModel($id), ));
+		}
 	}
 
 

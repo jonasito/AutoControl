@@ -10,15 +10,23 @@
 
 <?php $patentes=Ingreso::model()->ocupados(); ?>
 
-    <label>Rut cliente</label>
-    <select name='numero'>'
-        <?php
-        foreach ($patentes as $value) { ?>
+    <label>Patente</label>
+    
+    <input name="numero" type="text" placeholder="Type something…">
+   
 
-            <option type="checkbox" name="numero" value= <?php echo $value->ing_codigo ?> > <?php echo $value->v_patente ?>
-        
-        <?php } ?>
-    </select>
+    <div class="radio">
+      <label>
+        <input type="radio" name="opciones" id="opciones_1" value="opcion_1" checked>
+        cliente normal
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="opciones" id="opciones_2" value="opcion_2">
+        cliente premium
+      </label>
+    </div>
 
 <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Submit')); ?>

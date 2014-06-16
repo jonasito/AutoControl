@@ -29,9 +29,5 @@
 	<?php echo CHtml::encode($data->cli_email); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cli_contraseña')); ?>:</b>
-	<?php echo CHtml::encode($data->cli_contraseña); ?>
-	<br />
-
 
 </div>

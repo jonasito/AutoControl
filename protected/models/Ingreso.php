@@ -34,7 +34,7 @@ class Ingreso extends CActiveRecord
 		//ing_fecha, ing_hora_ing, en required
 		return array(
 			array('v_patente,ing_numero_est', 'required'),
-			array('ing_numero_est', 'numerical', 'integerOnly'=>true),
+			//array('ing_numero_est', 'numerical', 'integerOnly'=>true),
 			array('v_patente', 'length', 'max'=>10),
 			array('ing_hora_sal', 'safe'),
 			// The following rule is used by search().

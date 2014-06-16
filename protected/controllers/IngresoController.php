@@ -150,14 +150,9 @@ class IngresoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate(){
+	public function actionCreate2(){
 		$model=new Ingreso;
-		//$serv=new Servicios;
-		
 		$fecha=date('d-m-Y');
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Ingreso']))
 		{
 			$fecha=date('d-m-Y');
@@ -165,36 +160,47 @@ class IngresoController extends Controller
 			$model->attributes=$_POST['Ingreso'];
 			$model->ing_fecha=$fecha;
 			$model->ing_hora_ing=$hora;
-			if($model->ing_numero_est>=1 && $model->ing_numero_est <= Yii::app()->getSession()->get('est')){
 
-				if($this->patente($model->v_patente)==1){
-					if($model->save()){
-						if(isset($_POST['numero'])){
-							$numero=$_POST["numero"];
-						    $count = count($numero);
-						    for ($i = 0; $i < $count; $i++) {
-						    	$solicita=new Solicita;
-						        //echo $numero[$i];
-						        $solicita->ing_codigo=$model->ing_codigo;
-								$solicita->ser_id=$numero[$i];
-								$solicita->save();
-						    }
+			$model->ing_numero_est=$_POST['estacionamiento'];
+			
+			Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa est '.$model->ing_numero_est.' - ');
+		}
+		$this->render('create',array(
+				'model'=>$model,
+			));	
+	}
+	public function actionCreate(){
+		$model=new Ingreso;
+		$fecha=date('d-m-Y');
+		if(isset($_POST['Ingreso']))
+		{
+			$fecha=date('d-m-Y');
+			$hora=date("H:i:s",time()-21600);
+			$model->attributes=$_POST['Ingreso'];
+			$model->ing_fecha=$fecha;
+			$model->ing_hora_ing=$hora;
+
+			$model->ing_numero_est=$_POST['estacionamiento'];
+			
+			if($this->patente($model->v_patente)==1){
+				if($model->save()){
+					if(isset($_POST['numero'])){
+						$numero=$_POST["numero"];
+						$count = count($numero);
+						for ($i = 0; $i < $count; $i++) {
+						    $solicita=new Solicita;
+						    //echo $numero[$i];
+						    $solicita->ing_codigo=$model->ing_codigo;
+							$solicita->ser_id=$numero[$i];
+							$solicita->save();
 						}
-						$this->redirect(array('view','id'=>$model->ing_codigo));
 					}
-				}
-				else{
-					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');
+						$this->redirect(array('view','id'=>$model->ing_codigo));
 				}
 			}
-			
-			else {
-				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un numero de estacionamiento valido.');
-				//throw new CHttpException(403, 'No se posee permisos');
-				//$this->render('create',array('model'=>$model, ));
-			}	
+			else 
+				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');
 		}
-			
 		$this->render('create',array(
 				'model'=>$model,
 			));	

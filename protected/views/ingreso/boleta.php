@@ -10,7 +10,7 @@
 
 <?php $patentes=Ingreso::model()->ocupados(); ?>
 
-    <label>Rut cliente</label>
+    <label>Seleccione patente</label>
     <select name='numero'>'
         <?php
         foreach ($patentes as $value) { ?>
@@ -21,7 +21,7 @@
     </select>
 
 <div class="form-actions">
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Submit')); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'danger', 'label'=>'Generar boleta')); ?>
 </div>
 
 <?php $this->endWidget(); ?>

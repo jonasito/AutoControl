@@ -150,4 +150,39 @@ class Ingreso extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function registrobasico($patente){
+		$sql = "SELECT *
+				from ingreso
+				where ing_hora_sal is null and ing_codigo=(select max(ing_codigo) from ingreso where v_patente='$patente')";
+		           
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		$dataReader = $command->queryAll();
+		return $dataReader;
+	}
+	public function registrohistorico($patente){
+		$criteria=new CDbCriteria;
+	    //$criteria->select = "distinct ing_codigo, v_patente";
+	    $criteria->condition = 'v_patente=:patente';
+		$criteria->params = array(':patente'=>$patente);
+		$criteria->order = 'ing_fecha,ing_hora_ing ASC';
+	    $historial=Ingreso::model()->findAll($criteria);
+	    return $historial;
+	}
+	public function consultaCN($patente){
+		$datos = $this->registrobasico($patente);
+		if($datos == null){
+			return null;
+		}
+		else return $datos;
+	}
+
+	public function consultaCP($patente){
+		$datos = $this->registrohistorico($patente);
+		if($datos == null){
+			return null;
+		}
+		else return $datos;
+	}
 }

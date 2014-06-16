@@ -32,7 +32,7 @@ class Administrador extends CActiveRecord
 			array('admin_estacionamientos', 'numerical', 'integerOnly'=>true),
 			array('admin_rut', 'length', 'max'=>12),
 			array('admin_nombre, admin_apellido', 'length', 'max'=>50),
-			array('admin_contraseña', 'length', 'max'=>10),
+			array('admin_contraseña', 'length','min'=>6 ,'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('admin_rut, admin_nombre, admin_apellido, admin_contraseña, admin_estacionamientos', 'safe', 'on'=>'search'),

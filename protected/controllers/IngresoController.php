@@ -79,27 +79,47 @@ class IngresoController extends Controller
 			//$this->render('boleta',array('id'=>$id));
 		}
 		
+
 	}
 	public function actionCliente()
 	{
-		
+		$hora = 700;
+		$media = 400;
 		if(!isset($_POST['numero']))
 		{
 			$this->render('cliente');
 		}
 		else{
-			$numero=$_POST["numero"];
-			$id=$numero;
-			$this->render('view',array(
-			'model'=>$this->loadModel($id), ));
+			$patente=$_POST["numero"];
+			$opcion=$_POST["opciones"];
+			if($this->patente($patente)==1){
+				/*$this->render('view',array(
+				'model'=>$this->loadModel($opcion),));*/
+				if($opcion == 1){
+					$datos = Ingreso::model()->consultaCN($patente);
+					$this->render('viewCCN',array(
+						'datos'=>$datos,));
+
+					//return $datos;
+				}
+				if($opcion == 2){
+					$datos = Ingreso::model()->consultaCP($patente);
+					$this->render('viewCCP',array(
+						'datos'=>$datos,));
+					//return $datos;
+				}
+
+			} else{
+				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');				
+				$this->render('cliente');
+			}
 		}
 	}
-
 
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
-	 */
+	*/
 	public function actionView($id)
 	{
 		/*$solicita=new Solicita;
@@ -325,4 +345,5 @@ class IngresoController extends Controller
 		//si estoy aqui es que todos los caracteres son validos 
 		return 1; 
 	} 
+
 }

@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="en" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/styles.css" />
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
-	<?php Yii::app()->bootstrap->register(); ?>
+    <?php Yii::app()->bootstrap->register(); ?>
 </head>
 
 <body>
@@ -24,6 +24,8 @@
                 array('label'=>'Contacto', 'url'=>array('/site/contact'),'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Disponibilidad', 'url'=>array('/ingreso/disponibilidad')),
                 array('label'=>'Info cliente', 'url'=>array('/ingreso/cliente')),
+
+
                 //array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar administrador', 'url'=>array('/administrador/create')),
@@ -69,22 +71,22 @@
 
 <div class="container" id="page">
 
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
+    <?php if(isset($this->breadcrumbs)):?>
+        <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+            'links'=>$this->breadcrumbs,
+        )); ?><!-- breadcrumbs -->
+    <?php endif?>
 
 
-	<?php echo $content; ?>
+    <?php echo $content; ?>
 
-	<div class="clear"></div>
+    <div class="clear"></div>
 
-	<div id="footer">
-		Creado en &copy; <?php echo date('Y'); ?> por Grupo 8.<br/>
-		Sprint #1.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
+    <div id="footer">
+        Creado en &copy; <?php echo date('Y'); ?> por Grupo 8.<br/>
+        Sprint #1.<br/>
+        <?php echo Yii::powered(); ?>
+    </div><!-- footer -->
 
 </div><!-- page -->
 

@@ -51,7 +51,11 @@ class Ingreso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'servicioses' => array(self::MANY_MANY, 'Servicios', 'solicita(ing_codigo, ser_id)'),
+			'servicios' => array(
+				self::MANY_MANY, 
+				'Servicios', 
+				'solicita(ing_codigo, ser_id)'
+				),
 		);
 	}
 
@@ -129,6 +133,11 @@ class Ingreso extends CActiveRecord
 	    $criteria->condition = 'ing_hora_sal is null';
 	    $ocupados=Ingreso::model()->findAll($criteria);
 	    return $ocupados;
+  	}
+
+  	public function boleta($id){
+  		$datos=Ingreso::model()->findByPk($id);
+  		return $datos->servicios;
   	}
 
 	/**

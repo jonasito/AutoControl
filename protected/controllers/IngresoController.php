@@ -28,7 +28,7 @@ class IngresoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','disponibilidad'),
+				'actions'=>array('index','view','disponibilidad','cliente'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -79,6 +79,20 @@ class IngresoController extends Controller
 			//$this->render('boleta',array('id'=>$id));
 		}
 		
+	}
+	public function actionCliente()
+	{
+		
+		if(!isset($_POST['numero']))
+		{
+			$this->render('cliente');
+		}
+		else{
+			$numero=$_POST["numero"];
+			$id=$numero;
+			$this->render('view',array(
+			'model'=>$this->loadModel($id), ));
+		}
 	}
 
 

@@ -23,6 +23,7 @@
                 array('label'=>'Nosotros', 'url'=>array('/site/page', 'view'=>'about'),'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Contacto', 'url'=>array('/site/contact'),'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Disponibilidad', 'url'=>array('/ingreso/disponibilidad')),
+                array('label'=>'Info cliente', 'url'=>array('/ingreso/cliente')),
                 //array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar administrador', 'url'=>array('/administrador/create')),

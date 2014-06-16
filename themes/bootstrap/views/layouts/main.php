@@ -32,6 +32,7 @@
                 //array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar cliente', 'url'=>array('/clientePremium/create')),
+                    array('label'=>'Listar cliente', 'url'=>array('/clientePremium/index')),
                     array('label'=>'Administrar clientes ', 'url'=>array('/clientePremium/admin')),
                 )),
 

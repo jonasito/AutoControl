@@ -44,7 +44,7 @@ $('.search-form form').submit(function(){
         array('name'=>'cli_telefono', 'header'=>'Telefono'),
         array('name'=>'cli_direccion', 'header'=>'Direccion'),
         array('name'=>'cli_email', 'header'=>'Email'),
-        array('name'=>'cli_contraseña', 'header'=>'Contraseña'),
+        //array('name'=>'cli_contraseña', 'header'=>'Contraseña'),
 
 
         array(

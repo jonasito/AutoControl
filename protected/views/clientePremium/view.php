@@ -26,6 +26,6 @@ $this->menu=array(
         array('name'=>'cli_telefono', 'label'=>'Telefono'),
         array('name'=>'cli_direccion', 'label'=>'Direccion'),
         array('name'=>'cli_email', 'label'=>'Email'),
-        array('name'=>'cli_contraseña', 'label'=>'Contraseña'),
+        //array('name'=>'cli_contraseña', 'label'=>'Contraseña'),
    ),
 )); ?>

@@ -21,32 +21,73 @@
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_nombre'); ?>
-		<?php echo $form->textField($model,'ser_nombre',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'ser_nombre',array('size'=>50,'maxlength'=>50,'placeholder'=>"Ej: Lavado del vehiculo")); ?>
 		<?php echo $form->error($model,'ser_nombre'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_descripcion'); ?>
-		<?php echo $form->textField($model,'ser_descripcion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textArea($model,'ser_descripcion',array('size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Lavado del vehiculo, no incluye encerado")); ?>
 		<?php echo $form->error($model,'ser_descripcion'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_valor'); ?>
-		<?php echo $form->textField($model,'ser_valor'); ?>
+		<?php echo $form->textField($model,'ser_valor',array('placeholder'=>"Ej: 10000")); ?>
 		<?php echo $form->error($model,'ser_valor'); ?>
 	</div>
 
 	<div class="">
-		<?php echo $form->labelEx($model,'ser_fecha_inicio'); ?>
-		<?php echo $form->textField($model,'ser_fecha_inicio'); ?>
-		<?php echo $form->error($model,'ser_fecha_inicio'); ?>
+ 		<?php echo $form->labelEx($model,'ser_fecha_inicio'); ?>
+ 		<?php
+
+  			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+   			'model'=>$model,
+		   	'attribute'=>'ser_fecha_inicio',
+		   	'value'=>$model->ser_fecha_inicio,
+		   	'language' => 'es',
+		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'options'=>array(
+		    'autoSize'=>true,
+		    'defaultDate'=>$model->ser_fecha_inicio,
+		    'dateFormat'=>'dd-mm-yy',
+		    'selectOtherMonths'=>true,
+		    'showAnim'=>'fold',
+		    'showOtherMonths'=>true, 
+		    'changeMonth' => 'true', 
+		    'changeYear' => 'true', 
+		    'minDate'=>'date("Y-m-d")', 
+		    'maxDate'=> "+20Y",
+		    ),
+		  )); 
+		 ?>
+ 		<?php echo $form->error($model,'ser_fecha_inicio'); ?>
 	</div>
 
 	<div class="">
-		<?php echo $form->labelEx($model,'ser_fecha_termino'); ?>
-		<?php echo $form->textField($model,'ser_fecha_termino'); ?>
-		<?php echo $form->error($model,'ser_fecha_termino'); ?>
+ 		<?php echo $form->labelEx($model,'ser_fecha_termino'); ?>
+ 		<?php
+  			$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+   			'model'=>$model,
+		   	'attribute'=>'ser_fecha_termino',
+		   	'value'=>$model->ser_fecha_termino,
+		   	'language' => 'es',
+		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'options'=>array(
+		    'autoSize'=>true,
+		    'defaultDate'=>$model->ser_fecha_termino,
+		    'dateFormat'=>'dd-mm-yy',
+		    'selectOtherMonths'=>true,
+		    'showAnim'=>'slide',
+		    'showOtherMonths'=>true, 
+		    'changeMonth' => 'true', 
+		    'changeYear' => 'true', 
+		    'minDate'=>'date("Y-m-d")', 
+		    'maxDate'=> "+20Y",
+		    ),
+		  )); 
+		 ?>
+ 		<?php echo $form->error($model,'ser_fecha_termino'); ?>
 	</div>
 
 	<div class="buttons">
@@ -56,3 +97,7 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+
+
+

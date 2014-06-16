@@ -27,6 +27,7 @@
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar administrador', 'url'=>array('/administrador/create')),
                     array('label'=>'Administrar administrador ', 'url'=>array('/administrador/admin')),
+                    array('label'=>'Informe de ventas','url'=>array('/administrador/ventas')),
                 )),
 
                 //array('label'=>'Cliente Premium', 'url'=>array('/clientePremium/index'),'visible'=>!Yii::app()->user->isGuest),

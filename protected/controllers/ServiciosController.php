@@ -63,16 +63,34 @@ class ServiciosController extends Controller
 	public function actionCreate()
 	{
 		$model=new Servicios;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Servicios']))
 		{
 			$model->attributes=$_POST['Servicios'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->ser_id));
-				//$this->actionView($model->ser_id);
+			$letras=$this->solo_letras($model->ser_nombre);
+			$letras2=$this->solo_letras($model->ser_descripcion);
+			if($letras==1 && $letras2 ==1) {
+				if($model->ser_valor>0){
+					if($model->ser_fecha_inicio<=$model->ser_fecha_termino){
+						if($model->save()){
+							$this->redirect(array('view','id'=>$model->ser_id));
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('error', '<strong>UPS!</strong> La fecha de inicio debe ser menor o igual a la fecha de término');
+					}
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El valor ingresado debe ser mayor que 0');
+				}
+					
+			}
+			else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> Debe ingresar solo letras');
+			}
+			
 		}
 
 		$this->render('create',array(
@@ -95,8 +113,27 @@ class ServiciosController extends Controller
 		if(isset($_POST['Servicios']))
 		{
 			$model->attributes=$_POST['Servicios'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->ser_id));
+			$letras=$this->solo_letras($model->ser_nombre);
+			$letras2=$this->solo_letras($model->ser_descripcion);
+			if($letras==1 && $letras2 ==1) {
+				if($model->ser_valor>0){
+					if($model->ser_fecha_inicio<=$model->ser_fecha_termino){
+						if($model->save()){
+							$this->redirect(array('view','id'=>$model->ser_id));
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('error', '<strong>UPS!</strong> La fecha de inicio debe ser menor o igual a la fecha de término');
+					}
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El valor ingresado debe ser mayor que 0');
+				}
+					
+			}
+			else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> Debe ingresar solo letras');
+			}
 		}
 
 		$this->render('update',array(
@@ -171,4 +208,16 @@ class ServiciosController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function solo_letras($cadena){ 
+		$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+		for ($i=0; $i<strlen($cadena); $i++){ 
+		if (strpos($permitidos, substr($cadena,$i,1))===false){ 
+		//no es válido; 
+		return 0; 
+		} 
+		}  
+		//si estoy aqui es que todos los caracteres son validos 
+		return 1; 
+	} 
 }

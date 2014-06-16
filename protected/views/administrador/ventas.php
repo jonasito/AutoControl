@@ -1,16 +1,10 @@
 <?php
-/* @var $this ServiciosController */
-/* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicios'=>array('index'),
-	'Ingresar',
+	'Administrador'=>array('index'),
+	'Ventas',
 );
 
-$this->menu=array(
-	array('label'=>'Listar Servicios', 'url'=>array('index')),
-	array('label'=>'Administrar Servicios', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Ingresar Servicios</h1>

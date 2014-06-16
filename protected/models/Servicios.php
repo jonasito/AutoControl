@@ -32,11 +32,10 @@ class Servicios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ser_nombre, ser_descripcion, ser_valor, ser_fecha_inicio, ser_fecha_termino', 'required'),
+			array('ser_nombre, ser_descripcion, ser_valor, ser_fecha_inicio, ser_fecha_termino', 'required', 'message'=>'No puede haber un campo en blanco' ),
 			array('ser_valor', 'numerical', 'integerOnly'=>true,'message'=>'El valor ingresado debe ser entero'),
 			array('ser_nombre', 'length', 'max'=>50),
 			array('ser_descripcion', 'length', 'max'=>100),
-			array('ser_fecha_inicio','compare','compareValue'=>date('ser_fecha_termino'),'operator'=>'<=','message'=>'La fecha de inicio debe ser menor o igual a la fecha de termino.'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ser_id, ser_nombre, ser_descripcion, ser_valor, ser_fecha_inicio, ser_fecha_termino', 'safe', 'on'=>'search'),
@@ -61,12 +60,12 @@ class Servicios extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ser_id' => 'Id',
+			//'ser_id' => 'Id',
 			'ser_nombre' => 'Nombre',
-			'ser_descripcion' => 'Descripcion',
-			'ser_valor' => 'Valor',
+			'ser_descripcion' => 'Descripción',
+			'ser_valor' => 'Valor ($)',
 			'ser_fecha_inicio' => 'Fecha Inicio',
-			'ser_fecha_termino' => 'Fecha Termino',
+			'ser_fecha_termino' => 'Fecha Término',
 		);
 	}
 

@@ -6,6 +6,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
+	'language'=>'es',
 	'theme'=>'bootstrap',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'AutoControl',
@@ -61,7 +62,7 @@ return array(
 		      'connectionString' => 'pgsql:host=localhost;dbname=ac',
 		      'emulatePrepare' => false,
 		      'username' => 'postgres',
-		      'password' => 'codigojona',
+		      'password' => 'ubb2014',
 		      'charset' => 'utf8',
 		    ),
 		

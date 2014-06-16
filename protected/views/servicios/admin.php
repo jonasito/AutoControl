@@ -44,7 +44,7 @@ $('.search-form form').submit(function(){
     'filter'=>$model,
     'template'=>"{items}",
     'columns'=>array(
-        array('name'=>'ser_id', 'header'=>'Id'),
+        //array('name'=>'ser_id', 'header'=>'Id'),
         array('name'=>'ser_nombre', 'header'=>'Nombre'),
         array('name'=>'ser_descripcion', 'header'=>'Descripción'),
         array('name'=>'ser_valor', 'header'=>'Valor'),

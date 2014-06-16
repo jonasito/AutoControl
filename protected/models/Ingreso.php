@@ -100,14 +100,35 @@ class Ingreso extends CActiveRecord
 		));
 	}
 
-	public function disponibilidad($fecha){
+	public function disponibilidad(){
 	    $criteria=new CDbCriteria;
-	    $criteria->select = "ing_numero_est";
-	    //$criteria->condition = 'ing_fecha=:fecha AND ing_hora_sal is null';
-	    $criteria->condition = 'ing_fecha=current_date AND ing_hora_sal is null';
+	    //seleccionar los ocupados!!!!
+	    $criteria->select = "distinct ing_numero_est";
+	    $criteria->condition = 'ing_fecha = current_date AND ing_hora_sal is null';
 		//$criteria->params = array(':fecha'=>$fecha);
 	    $servi=Ingreso::model()->findAll($criteria);
-	    return $servi;
+	    $maximo=Administrador::model()->maximo();
+
+	    $b=0;$c=0;
+	    for ($i=1; $i <= $maximo; $i++) { 
+	    	foreach ($servi as $value) {
+	    		if($i==$value->ing_numero_est)$b=1;
+	    	}
+	    	if($b==0){
+	    		$libre[$c]=$i;
+	    		$c=$c+1;
+	    	}
+	    	else $b=0;
+	    }
+		return $libre;
+  	}
+
+  	public function ocupados(){
+		$criteria=new CDbCriteria;
+	    $criteria->select = "distinct ing_codigo, v_patente";
+	    $criteria->condition = 'ing_hora_sal is null';
+	    $ocupados=Ingreso::model()->findAll($criteria);
+	    return $ocupados;
   	}
 
 	/**

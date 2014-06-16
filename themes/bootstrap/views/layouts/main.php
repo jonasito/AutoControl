@@ -22,7 +22,7 @@
                 array('label'=>'Inicio', 'url'=>array('/site/index')),
                 array('label'=>'Nosotros', 'url'=>array('/site/page', 'view'=>'about'),'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Contacto', 'url'=>array('/site/contact'),'visible'=>Yii::app()->user->isGuest),
-                
+                array('label'=>'Disponibilidad', 'url'=>array('/ingreso/disponibilidad')),
                 //array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Administrador', 'url'=>array('/administrador/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar administrador', 'url'=>array('/administrador/create')),
@@ -44,7 +44,9 @@
                 array('label'=>'Ingresos', 'url'=>array('/ingreso/index'),'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Registrar ingreso', 'url'=>array('/ingreso/create')),
                     //array('label'=>'Listar ingresos', 'url'=>array('/ingreso/index')),
-                    array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),/*
+                    array('label'=>'Administrar', 'url'=>array('/ingreso/admin')),
+                    array('label'=>'Generar Boleta', 'url'=>array('/ingreso/boleta')), 
+                    /*
                     '-------',
                     array('label'=>'Emitir boleta', 'url'=>'#'),
                     array('label'=>'disponibilidad', 'url'=>array('/ingreso/disponibilidad')),*/

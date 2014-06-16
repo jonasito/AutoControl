@@ -1,17 +1,37 @@
+<label>disponibilidad</label>
 
 <?php 
-//$fecha=date('d-m-Y');
-//$model=Ingreso::model()->disponibilidad($fecha);
-if(!is_null($model)){
-foreach ($model as $value) { ?>
+$libre=Ingreso::model()->disponibilidad();
 
-    <label>estacionamiento <?php echo $value->ing_numero_est ?> </label>
+if(!is_null($libre)){ ?>
+
+<div class="well span8">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Libre</th>
+                <th>Numero</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            for ($i=0; $i < count($libre); $i++) {
+                echo '<tr>'; 
+                    echo '<td>Libre</td>';
+                    echo '<td>'; echo $libre[$i]; echo '</td>';  
+                echo '</tr>';
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<?php
+    }else echo '<label>sin estacionamientos</label>';
+?>
 
 
-<?php }
-}
-else{ ?>
-<label>sin estacionamientos</label>
 
-<?php }?>
+
+
 

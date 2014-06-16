@@ -32,7 +32,7 @@ class IngresoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('admin','delete','prueba','servicios','create','update'),
+				'actions'=>array('admin','delete','prueba','servicios','create','update','boleta'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -53,6 +53,15 @@ class IngresoController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionBoleta()
+	{
+		$model=Ingreso::model()->ocupados();
+		$this->render('boleta',array(
+			'model'=>$model,
+		));
+	}
+
 
 	/**
 	 * Displays a particular model.

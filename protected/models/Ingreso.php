@@ -135,6 +135,11 @@ class Ingreso extends CActiveRecord
 	    return $ocupados;
   	}
 
+  	public function boleta($id){
+  		$datos=Ingreso::model()->findByPk($id);
+  		return $datos->servicios;
+  	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

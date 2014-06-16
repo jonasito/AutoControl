@@ -56,15 +56,26 @@ class IngresoController extends Controller
 
 	public function actionBoleta()
 	{
-		if(isset($_POST['SolicitudAcademicaElevada']){
-
+		
+		if(!isset($_POST['numero']))
+		{
+			$id=null;
+			$this->render('boleta',array('id'=>$id));
 		}
 		else{
-			$model=Ingreso::model()->ocupados();
-			$this->render('boleta',array(
-				'model'=>$model,
+			$numero=$_POST["numero"];
+			$id=$numero;
+			
+			$registro=Ingreso::model()->findByPk($id);
+			$servicios=Ingreso::model()->boleta($id);
+
+			$this->render('viewboleta',array(
+			'servicios'=>$servicios,
+			'registro'=>$registro,
 			));
+			//$this->render('boleta',array('id'=>$id));
 		}
+		
 	}
 
 

@@ -62,7 +62,7 @@ return array(
 		      'connectionString' => 'pgsql:host=localhost;dbname=ac',
 		      'emulatePrepare' => false,
 		      'username' => 'postgres',
-		      'password' => 'ubb2014',
+		      'password' => 'codigojona',
 		      'charset' => 'utf8',
 		    ),
 		

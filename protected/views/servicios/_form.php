@@ -92,6 +92,7 @@
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Ingresar' : 'Guardar'); ?>
+		<?php echo CHtml::resetButton('Cancelar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -53,6 +53,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::resetButton('Cancelar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

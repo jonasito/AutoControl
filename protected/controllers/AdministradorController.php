@@ -32,7 +32,7 @@ class AdministradorController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','ventas'),
 				'users'=>array('@'),
 			),
 			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -42,6 +42,18 @@ class AdministradorController extends Controller
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
+			 array(
+            'class'=>'CButtonColumn',
+                    'template' => '{view} {update} {delete} {pdf}',
+                'buttons'=>array(
+                        'pdf' => array(
+                                'label'=>'Generar PDF', 
+                                'url'=>"CHtml::normalizeUrl(array('pdf', 'id'=>\$data->id))",
+                                'imageUrl'=>Yii::app()->request->baseUrl.'/images/pdf_icon.png', 
+                                'options' => array('class'=>'pdf'),
+                        ),
+                ),
+        	),
 		);
 	}
 
@@ -84,7 +96,7 @@ class AdministradorController extends Controller
 					$this->redirect(array('view','id'=>$model->admin_rut));
 				}
 				else{
-					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> Ingresa un nombre y apellido solo con letras');
 				}
 			}
 		}
@@ -93,6 +105,23 @@ class AdministradorController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionVentas(){
+		if(isset($_POST['venta'])){
+
+
+		}
+		
+		$this->render('ventas');
+	}
+
+
+	public function actionPdf($id)
+    {
+        $this->render('pdf',array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
 
 	/**
 	 * Updates a particular model.

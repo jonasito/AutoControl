@@ -1,8 +1,6 @@
 <label>Generar Boleta</label>
 
-<?php
-if($id!=null)echo '<label>el id es </label>'.$id;
-?>
+
 
 <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',

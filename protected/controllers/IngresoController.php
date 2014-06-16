@@ -59,14 +59,17 @@ class IngresoController extends Controller
 		
 		if(!isset($_POST['numero']))
 		{
-			$id=null;
-			$this->render('boleta',array('id'=>$id));
+			$this->render('boleta');
 		}
 		else{
 			$numero=$_POST["numero"];
 			$id=$numero;
 			
+			$salida=date("H:i:s",time()-21600);
 			$registro=Ingreso::model()->findByPk($id);
+			$registro->ing_hora_sal=$salida;
+			$registro->save();
+
 			$servicios=Ingreso::model()->boleta($id);
 
 			$this->render('viewboleta',array(

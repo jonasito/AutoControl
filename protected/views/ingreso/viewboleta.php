@@ -1,5 +1,10 @@
 <label>Boleta</label>
-    
+
+<?php
+    $media=400;
+    $hora=700;
+?>    
+
 <?php
     echo "---------------- Entrada --------------------";
     if(!empty($servicios)){
@@ -8,6 +13,17 @@
         echo '<label>Patente '.$registro->v_patente.'</label>';
         echo '<label>Fecha '.$registro->ing_fecha.'</label>';
         echo '<label>Hora de ingreso # '.$registro->ing_hora_ing.'</label>';
+        echo '<label>Hora de salida # '.$registro->ing_hora_sal.'</label>';
+
+        $separar[1]=explode(':',$registro->ing_hora_ing); 
+        $separar[2]=explode(':',$registro->ing_hora_sal); 
+
+        $total_minutos_trasncurridos[1] = ($separar[1][0]*60)+$separar[1][1]; 
+        $total_minutos_trasncurridos[2] = ($separar[2][0]*60)+$separar[2][1]; 
+        $total_minutos_trasncurridos = $total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2]; 
+
+
+        echo '<label>diferencia # '.($total_minutos_trasncurridos/60) .'</label>';
         echo "---------------- Servicios --------------------";
 
         $total=0;

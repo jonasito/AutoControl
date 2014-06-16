@@ -56,10 +56,15 @@ class IngresoController extends Controller
 
 	public function actionBoleta()
 	{
-		$model=Ingreso::model()->ocupados();
-		$this->render('boleta',array(
-			'model'=>$model,
-		));
+		if(isset($_POST['SolicitudAcademicaElevada']){
+
+		}
+		else{
+			$model=Ingreso::model()->ocupados();
+			$this->render('boleta',array(
+				'model'=>$model,
+			));
+		}
 	}
 
 

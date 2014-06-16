@@ -20,10 +20,9 @@
 
         $total_minutos_trasncurridos[1] = ($separar[1][0]*60)+$separar[1][1]; 
         $total_minutos_trasncurridos[2] = ($separar[2][0]*60)+$separar[2][1]; 
-        $total_minutos_trasncurridos = $total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2]; 
+        $totalest = ($total_minutos_trasncurridos[1]-$total_minutos_trasncurridos[2])/60; 
+         echo '<label>diferencia # '.($totalest).'</label>';
 
-
-        echo '<label>diferencia # '.($total_minutos_trasncurridos/60) .'</label>';
         echo "---------------- Servicios --------------------";
 
         $total=0;
@@ -33,13 +32,17 @@
         }
         echo "---------------------------------------------";
         echo '<label>Total servicios = '.$total.'</label>';    
+        
+        if($totalest>0.5)$costo=explode('.',($totalest*$hora))[0];
+        else $costo=500;
+        
         echo "---------------- Estacionamiento -------"; 
-        echo '<label>Costo Estacionamiento= '.$total.'</label>';
+        echo '<label>Costo Estacionamiento= '.$costo.'</label>';
 
         echo "---------------------------------------------";
         echo '<br></br>';
         echo "------- TOTAL SERVICIOS -------"; 
-        echo '<label>Total a pagar = '.$total.'</label>';
+        echo '<label>Total a pagar = '.($total+$costo).'</label>';
         echo "---------------------------------------------";
     }
     else{

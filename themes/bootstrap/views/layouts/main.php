@@ -14,6 +14,56 @@
 
 <body>
 
+
+
+<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id'=>'myModal')); ?>
+<div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h4>Disponibilidad</h4>
+</div>
+ 
+<div class="modal-body">
+    <?php 
+    $libre=Ingreso::model()->disponibilidad();
+    if(!is_null($libre)){ ?>
+    <div class="well span3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Libre</th>
+                    <th>Numero</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                for ($i=0; $i < count($libre); $i++) {
+                    echo '<tr>'; 
+                        echo '<td>Libre</td>';
+                        echo '<td>'; echo $libre[$i]; echo '</td>';  
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+    <?php
+        }else echo '<label>sin estacionamientos</label>';
+    ?>
+</div>
+ 
+<div class="modal-footer">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>'Cerrar',
+        'url'=>'#',
+        'htmlOptions'=>array('data-dismiss'=>'modal'),
+    )); ?>
+</div>
+<?php $this->endWidget(); ?>
+
+
+
+
+
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
     'items'=>array(
         array(
@@ -70,6 +120,14 @@
 )); ?>
 
 <div class="container" id="page">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>'Ver disponibilidad',
+        'type'=>'danger',
+        'htmlOptions'=>array(
+            'data-toggle'=>'modal',
+            'data-target'=>'#myModal',
+        ),
+    )); ?>
 
     <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
@@ -92,3 +150,7 @@
 
 </body>
 </html>
+
+
+
+

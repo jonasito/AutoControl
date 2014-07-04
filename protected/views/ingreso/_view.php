@@ -3,6 +3,9 @@
 /* @var $data Ingreso */
 ?>
 
+
+
+
 <div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ing_codigo')); ?>:</b>

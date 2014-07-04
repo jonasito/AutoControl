@@ -1,4 +1,12 @@
-<label>disponibilidad</label>
+<?php
+
+$this->breadcrumbs=array(
+    'Disponibilidad',
+);
+
+?>
+
+<h1>Disponibilidad</h1>
 
 <?php 
 $libre=Ingreso::model()->disponibilidad();
@@ -10,7 +18,7 @@ if(!is_null($libre)){ ?>
         <thead>
             <tr>
                 <th>Libre</th>
-                <th>Numero</th>
+                <th>Número</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +35,7 @@ if(!is_null($libre)){ ?>
 </div>
 
 <?php
-    }else echo '<label>sin estacionamientos</label>';
+    }else echo '<label>Sin estacionamientos</label>';
 ?>
 
 

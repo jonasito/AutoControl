@@ -29,7 +29,7 @@ $hora=date("H:i:s",time()-21600);
 	$libre=Ingreso::model()->disponibilidad();
 	?>
 
-    <label>Numero Estacionamiento</label>
+    <label>Número Estacionamiento</label>
     <select name='estacionamiento'>'
     	<?php
         for ($i=0; $i < count($libre); $i++) {?>

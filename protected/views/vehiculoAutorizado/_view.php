@@ -3,7 +3,7 @@
 /* @var $data VehiculoAutorizado */
 ?>
 
-<div class="view">
+<div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('v_patente')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->v_patente), array('view', 'id'=>$data->v_patente)); ?>

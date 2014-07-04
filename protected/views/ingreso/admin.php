@@ -2,9 +2,14 @@
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 
+$this->breadcrumbs=array(
+    'Ingreso'=>array('index'),
+    'Administrar',
+);
+
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
-	array('label'=>'Crear Ingreso', 'url'=>array('create')),
+	array('label'=>'Registrar Ingreso', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Ingresos</h1>
 
-<?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Búsqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

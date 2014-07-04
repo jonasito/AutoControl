@@ -2,10 +2,14 @@
 /* @var $this VehiculoAutorizadoController */
 /* @var $model VehiculoAutorizado */
 
+$this->breadcrumbs=array(
+    'Vehículo Autorizado'=>array('index'),
+    'Administrar',
+);
 
 $this->menu=array(
 	//array('label'=>'List VehiculoAutorizado', 'url'=>array('index')),
-	array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('create')),
+	array('label'=>'Ingresar Vehículo Autorizado', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

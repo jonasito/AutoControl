@@ -3,10 +3,14 @@
 /* @var $model Ingreso */
 $fecha=date('d-m-Y');
 
+$this->breadcrumbs=array(
+    'Servicios'=>array('index'),
+    $model->ing_codigo,
+);
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
-	array('label'=>'Crear Ingreso', 'url'=>array('create')),
+	array('label'=>'Registrar Ingreso', 'url'=>array('create')),
 	array('label'=>'Actualizar Ingreso', 'url'=>array('update', 'id'=>$model->ing_codigo)),
 	array('label'=>'Eliminar Ingreso', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ing_codigo),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar Ingreso', 'url'=>array('admin')),

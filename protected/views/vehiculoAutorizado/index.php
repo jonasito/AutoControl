@@ -2,13 +2,17 @@
 /* @var $this VehiculoAutorizadoController */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->breadcrumbs=array(
+	'Vehículo Autorizado',
+);
+
 $this->menu=array(
-	array('label'=>'Ingresar Vehiculo Autorizado', 'url'=>array('create')),
+	array('label'=>'Ingresar Vehículo Autorizado', 'url'=>array('create')),
 	//array('label'=>'Manage VehiculoAutorizado', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Vehiculo Autorizados</h1>
+<h1>Vehículo Autorizados</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

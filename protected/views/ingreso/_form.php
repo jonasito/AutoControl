@@ -5,6 +5,7 @@ $hora=date("H:i:s",time()-21600);
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 /* @var $form CActiveForm */
+
 ?>
 
 	<?php /** @var BootActiveForm $form */
@@ -15,7 +16,7 @@ $hora=date("H:i:s",time()-21600);
 	    'enableAjaxValidation'=>true,
 	)); ?>
 
-	<p class="note">Los campos <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Los campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
  

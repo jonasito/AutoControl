@@ -3,13 +3,13 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Contáctanos';
 $this->breadcrumbs=array(
-	'Contact',
+	'Contacto',
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Contáctanos</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 

@@ -2,11 +2,14 @@
 /* @var $this ClientePremiumController */
 /* @var $model ClientePremium */
 
-
+$this->breadcrumbs=array(
+    'Cliente Premium'=>array('index'),
+    'Administrar',
+);
 
 $this->menu=array(
 	array('label'=>'Listar Cliente Premium', 'url'=>array('index')),
-	array('label'=>'Crear Cliente Premium', 'url'=>array('create')),
+	array('label'=>'Registrar Cliente Premium', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -25,7 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Cliente Premium</h1>
 
-<?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Búsqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -42,7 +45,7 @@ $('.search-form form').submit(function(){
         array('name'=>'cli_nombre', 'header'=>'Nombre'),
         array('name'=>'cli_apellido', 'header'=>'Apellido'),
         array('name'=>'cli_telefono', 'header'=>'Telefono'),
-        array('name'=>'cli_direccion', 'header'=>'Direccion'),
+        array('name'=>'cli_direccion', 'header'=>'Dirección'),
         array('name'=>'cli_email', 'header'=>'Email'),
         //array('name'=>'cli_contraseña', 'header'=>'Contraseña'),
 

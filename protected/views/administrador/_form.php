@@ -4,8 +4,8 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 /* @var $form CActiveForm */
-?>
 
+?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -17,7 +17,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
+	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -52,7 +52,7 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 	</div>
 
 	<div class="buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 		<?php echo CHtml::resetButton('Cancelar'); ?>
 	</div>
 

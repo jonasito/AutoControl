@@ -2,9 +2,14 @@
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 
+$this->breadcrumbs=array(
+    'Administrador'=>array('index'),
+    'Administrar',
+);
+
 $this->menu=array(
 	array('label'=>'Listar Administrador', 'url'=>array('index')),
-	array('label'=>'Crear Administrador', 'url'=>array('create')),
+	array('label'=>'Registrar Administrador', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

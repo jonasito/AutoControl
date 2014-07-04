@@ -170,7 +170,7 @@ class IngresoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate2(){
+	/*public function actionCreate2(){
 		$model=new Ingreso;
 		$fecha=date('d-m-Y');
 		if(isset($_POST['Ingreso']))
@@ -188,7 +188,7 @@ class IngresoController extends Controller
 		$this->render('create',array(
 				'model'=>$model,
 			));	
-	}
+	}*/
 	public function actionCreate(){
 		$model=new Ingreso;
 		$fecha=date('d-m-Y');

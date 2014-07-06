@@ -7,7 +7,7 @@
 
 <?php
     echo "---------------- Entrada --------------------";
-    echo '<label>Codigo ingreso # '.$registro->ing_codigo.'</label>';
+    echo '<label>Código ingreso # '.$registro->ing_codigo.'</label>';
     echo '<label>Patente '.$registro->v_patente.'</label>';
     echo '<label>Fecha '.$registro->ing_fecha.'</label>';
     echo '<label>Hora de ingreso # '.$registro->ing_hora_ing.'</label>';
@@ -39,7 +39,7 @@
     else $costo=$media;
     echo '<br></br>';
     echo "------ Estacionamiento ------------------"; 
-    echo '<label>Horas ocupados= '.$totalest.'</label>';
+    echo '<label>Horas ocupadas= '.$totalest.'</label>';
     echo '<label>Costo Estacionamiento= '.$costo.'</label>';
 
     echo "---------------------------------------------";

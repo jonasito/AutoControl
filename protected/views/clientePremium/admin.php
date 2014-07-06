@@ -44,7 +44,7 @@ $('.search-form form').submit(function(){
         array('name'=>'cli_rut', 'header'=>'Rut'),
         array('name'=>'cli_nombre', 'header'=>'Nombre'),
         array('name'=>'cli_apellido', 'header'=>'Apellido'),
-        array('name'=>'cli_telefono', 'header'=>'Telefono'),
+        array('name'=>'cli_telefono', 'header'=>'Teléfono'),
         array('name'=>'cli_direccion', 'header'=>'Dirección'),
         array('name'=>'cli_email', 'header'=>'Email'),
         //array('name'=>'cli_contraseña', 'header'=>'Contraseña'),

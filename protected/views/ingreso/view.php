@@ -22,7 +22,7 @@ $this->menu=array(
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,
     'attributes'=>array(
-        array('name'=>'ing_codigo', 'label'=>'Codigo'),
+        array('name'=>'ing_codigo', 'label'=>'Código'),
         array('name'=>'v_patente', 'label'=>'Patente'),
         array('name'=>'ing_fecha', 'label'=>'Fecha'),
         array('name'=>'ing_hora_ing', 'label'=>'Hora de ingreso'),

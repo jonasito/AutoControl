@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ingresar VehiculoAutorizado</h1>
+<h1>Ingresar Vehiculo Autorizado</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

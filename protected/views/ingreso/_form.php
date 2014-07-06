@@ -34,7 +34,7 @@ $hora=date("H:i:s",time()-21600);
     <select name='estacionamiento'>'
     	<?php
         for ($i=0; $i < count($libre); $i++) {?>
-                <option type="checkbox" name="estacionamieto" value= <?php echo $libre[$i] ?> > <?php echo $libre[$i] ?>
+                <option type="checkbox" name="estacionamiento" value= <?php echo $libre[$i] ?> > <?php echo $libre[$i] ?>
         <?php } ?>
     </select>
 	<?php //echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3','hint'=>'Estacionar entre 1 - '.Yii::app()->getSession()->get('est').' ' ) ); ?>

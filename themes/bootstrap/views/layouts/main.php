@@ -26,7 +26,7 @@
     <?php 
     $libre=Ingreso::model()->disponibilidad();
     if(!is_null($libre)){ ?>
-    <div class="well span3">
+    <div class=""  style="color:#F43249" >
         <table class="table">
             <thead>
                 <tr>

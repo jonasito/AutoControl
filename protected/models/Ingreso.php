@@ -127,6 +127,25 @@ class Ingreso extends CActiveRecord
 		return $libre;
   	}
 
+  	public function validar_ingreso($patente){
+  		/*$patente='jonasnn';
+  		$criteria=new CDbCriteria;
+  		//$criteria->compare('v_patente','='.$patente);
+	    $criteria->condition = 'v_patente=:patente';
+		$criteria->params = array(':patente'=>'jonasnn');
+		$criteria->condition = 'ing_hora_sal is null';
+	    $historial=Ingreso::model()->findAll($criteria);
+	    return $historial;*/
+	    $sql = "SELECT *
+				from ingreso
+				where ing_hora_sal is null and v_patente='$patente' ";
+		           
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		$dataReader = $command->queryAll();
+		return $dataReader;
+  	}
+
   	public function ocupados(){
 		$criteria=new CDbCriteria;
 	    $criteria->select = "distinct ing_codigo, v_patente";

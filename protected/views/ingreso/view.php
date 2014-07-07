@@ -3,10 +3,14 @@
 /* @var $model Ingreso */
 $fecha=date('d-m-Y');
 
+$this->breadcrumbs=array(
+    'Servicios'=>array('index'),
+    $model->ing_codigo,
+);
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
-	array('label'=>'Crear Ingreso', 'url'=>array('create')),
+	array('label'=>'Registrar Ingreso', 'url'=>array('create')),
 	array('label'=>'Actualizar Ingreso', 'url'=>array('update', 'id'=>$model->ing_codigo)),
 	array('label'=>'Eliminar Ingreso', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ing_codigo),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar Ingreso', 'url'=>array('admin')),
@@ -18,7 +22,7 @@ $this->menu=array(
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,
     'attributes'=>array(
-        array('name'=>'ing_codigo', 'label'=>'Codigo'),
+        array('name'=>'ing_codigo', 'label'=>'Código'),
         array('name'=>'v_patente', 'label'=>'Patente'),
         array('name'=>'ing_fecha', 'label'=>'Fecha'),
         array('name'=>'ing_hora_ing', 'label'=>'Hora de ingreso'),

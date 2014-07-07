@@ -5,6 +5,7 @@ $hora=date("H:i:s",time()-21600);
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 /* @var $form CActiveForm */
+
 ?>
 
 	<?php /** @var BootActiveForm $form */
@@ -15,7 +16,7 @@ $hora=date("H:i:s",time()-21600);
 	    'enableAjaxValidation'=>true,
 	)); ?>
 
-	<p class="note">Los campos <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Los campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
  
@@ -29,11 +30,11 @@ $hora=date("H:i:s",time()-21600);
 	$libre=Ingreso::model()->disponibilidad();
 	?>
 
-    <label>Numero Estacionamiento</label>
+    <label>Número Estacionamiento</label>
     <select name='estacionamiento'>'
     	<?php
         for ($i=0; $i < count($libre); $i++) {?>
-                <option type="checkbox" name="estacionamieto" value= <?php echo $libre[$i] ?> > <?php echo $libre[$i] ?>
+                <option type="checkbox" name="estacionamiento" value= <?php echo $libre[$i] ?> > <?php echo $libre[$i] ?>
         <?php } ?>
     </select>
 	<?php //echo $form->textFieldRow($model, 'ing_numero_est', array('class'=>'span3','hint'=>'Estacionar entre 1 - '.Yii::app()->getSession()->get('est').' ' ) ); ?>

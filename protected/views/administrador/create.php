@@ -2,6 +2,10 @@
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 
+$this->breadcrumbs=array(
+    'Administrador'=>array('index'),
+    'Registrar',
+);
 
 $this->menu=array(
 	array('label'=>'Listar Administrador', 'url'=>array('index')),
@@ -9,7 +13,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear Administrador</h1>
+<h1>Registrar Administrador</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
 

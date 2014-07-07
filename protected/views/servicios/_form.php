@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con<span class="required">*</span> son requeridos.</p>
+	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -56,7 +56,7 @@
 		    'showOtherMonths'=>true, 
 		    'changeMonth' => 'true', 
 		    'changeYear' => 'true', 
-		    'minDate'=>'date("Y-m-d")', 
+		    //'minDate'=>'date("Y-m-d")', 
 		    'maxDate'=> "+20Y",
 		    ),
 		  )); 
@@ -82,7 +82,7 @@
 		    'showOtherMonths'=>true, 
 		    'changeMonth' => 'true', 
 		    'changeYear' => 'true', 
-		    'minDate'=>'date("Y-m-d")', 
+		    //'minDate'=>'date("Y-m-d")', 
 		    'maxDate'=> "+20Y",
 		    ),
 		  )); 

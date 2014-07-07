@@ -2,6 +2,10 @@
 /* @var $this IngresoController */
 /* @var $model Ingreso */
 
+$this->breadcrumbs=array(
+    'Ingreso'=>array('index'),
+    'Registrar',
+);
 
 
 $this->menu=array(

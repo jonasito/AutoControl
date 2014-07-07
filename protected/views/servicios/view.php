@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Servicios', 'url'=>array('index')),
 	array('label'=>'Ingresar Servicios', 'url'=>array('create')),
-	array('label'=>'Administrar Servicios', 'url'=>array('update', 'id'=>$model->ser_id)),
+	array('label'=>'Actualizar Servicios', 'url'=>array('update', 'id'=>$model->ser_id)),
 	array('label'=>'Eliminar Servicios', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ser_id),'confirm'=>'Estás seguro que deseas eliminar este servicio?')),
 	array('label'=>'Administrar Servicios', 'url'=>array('admin')),
 );

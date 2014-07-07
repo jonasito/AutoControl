@@ -3,11 +3,7 @@
 /* @var $data Servicios */
 ?>
 
-<div class="view">
-
-	<!--<b><?php //echo CHtml::encode($data->getAttributeLabel('ser_id')); ?>:</b>
-	<?php //echo CHtml::link(CHtml::encode($data->ser_id), array('view', 'id'=>$data->ser_id)); ?>
-	<br />-->
+<div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ser_nombre')); ?>:</b>
 	<?php echo CHtml::encode($data->ser_nombre); ?>

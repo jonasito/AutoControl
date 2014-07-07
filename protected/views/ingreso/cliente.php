@@ -1,8 +1,11 @@
 <h1>Info cliente</h1>
+<?php
 
+$this->breadcrumbs=array(
+    'Info Cliente',
+);
 
-
-<?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',
         'htmlOptions'=>array('class'=>'well'),
         'enableAjaxValidation'=>true,

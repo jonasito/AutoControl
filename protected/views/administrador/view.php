@@ -9,8 +9,8 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Administrador', 'url'=>array('index')),
-	array('label'=>'Crear Administrador', 'url'=>array('create')),
-	array('label'=>'Modificar Administrador', 'url'=>array('update', 'id'=>$model->admin_rut)),
+	array('label'=>'Registrar Administrador', 'url'=>array('create')),
+	array('label'=>'Actualizar Administrador', 'url'=>array('update', 'id'=>$model->admin_rut)),
 	array('label'=>'Eliminar Administrador', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->admin_rut),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar Administrador', 'url'=>array('admin')),
 );

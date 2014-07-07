@@ -3,13 +3,14 @@
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Contacto';
 $this->breadcrumbs=array(
-	'Contact',
+	'Contacto',
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Contactános</h1>
+
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -18,10 +19,6 @@ $this->breadcrumbs=array(
     )); ?>
 
 <?php else: ?>
-
-<p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-</p>
 
 <div class="form">
 
@@ -34,8 +31,8 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
+	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+	<br>
 	<?php echo $form->errorSummary($model); ?>
 
     <?php echo $form->textFieldRow($model,'name'); ?>

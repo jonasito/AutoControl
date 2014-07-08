@@ -115,7 +115,7 @@
                 array('label'=>'Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=> Yii::app()->user->name, 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                     array('label'=>'Tarifa basica', 'url'=>array('/servicios/tarifa')),
-                    array('label'=>'Actualizar', 'url'=>array('/administrador/update', 'id'=>Yii::app()->user->rut)),
+                    array('label'=>'Actualizar', 'url'=>array('/administrador/update')),//,'id'=>Yii::app()->user->rut)),
                     array('label'=>'Salir', 'url'=>array('/site/logout')),
                 )),
             ),

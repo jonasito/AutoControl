@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -38,13 +38,13 @@
 	</div>
 
 	<div class="">
-		<?php echo $form->labelEx($model,'Telefono'); ?>
+		<?php echo $form->labelEx($model,'Teléfono'); ?>
 		<?php echo $form->textField($model,'cli_telefono',array('size'=>15,'maxlength'=>15, 'placeholder'=>'Ej: 3185007')); ?>
 		<?php echo $form->error($model,'cli_telefono'); ?>
 	</div>
 
 	<div class="">
-		<?php echo $form->labelEx($model,'Direccion'); ?>
+		<?php echo $form->labelEx($model,'Dirección'); ?>
 		<?php echo $form->textField($model,'cli_direccion',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Ej: Rosas 325')); ?>
 		<?php echo $form->error($model,'cli_direccion'); ?>
 	</div>

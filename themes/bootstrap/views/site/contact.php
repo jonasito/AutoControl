@@ -45,7 +45,7 @@ $this->breadcrumbs=array(
 
 	<?php if(CCaptcha::checkRequirements()): ?>
 		<?php echo $form->captchaRow($model,'verifyCode',array(
-            'hint'=>'Please enter the letters as they are shown in the image above.<br/>Letters are not case-sensitive.',
+            'hint'=>'Por favor introduce las letras tal como se muestran en la imagen de arriba..<br/>No distinguen entre mayúsculas y minúsculas.',
         )); ?>
 	<?php endif; ?>
 

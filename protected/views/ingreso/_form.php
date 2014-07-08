@@ -16,7 +16,7 @@ $hora=date("H:i:s",time()-21600);
 	    'enableAjaxValidation'=>true,
 	)); ?>
 
-	<p class="note">Los campos con<span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
  

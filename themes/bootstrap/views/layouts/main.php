@@ -113,7 +113,10 @@
                 )),
                 //array('label'=>'Servicios', 'url'=>array('/servicios/index'),'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Ingresar', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Salir ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=> Yii::app()->user->name, 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                    array('label'=>'Salir', 'url'=>array('/site/logout')),
+                    array('label'=>'Administrar ', 'url'=>array('/servicios/tarifa')),
+                )),
             ),
         ),
     ),

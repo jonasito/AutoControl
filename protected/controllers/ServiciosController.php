@@ -32,7 +32,7 @@ class ServiciosController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','tarifa'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -164,6 +164,13 @@ class ServiciosController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+	}
+
+	public function actionTarifa(){
+		$dataProvider=Servicios::model()->tarifa();
+		$this->render('tarifa',array(
+			'dataProvider'=>$dataProvider,
+		));	
 	}
 
 	/**

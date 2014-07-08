@@ -16,6 +16,8 @@
  */
 class Servicios extends CActiveRecord
 {
+	var $VH="HORA"; // VALOR HORA
+	var $VMH="MEDIA HORA"; //VALOR MEDIA HORA
 	/**
 	 * @return string the associated database table name
 	 */
@@ -106,6 +108,21 @@ class Servicios extends CActiveRecord
 		$criteria->params = array(':fservicio'=>$fecha);
 	    $servi=Servicios::model()->findAll($criteria);
 	    return $servi;
+  	}
+
+  	public function tarifa(){
+  		$criteria=new CDbCriteria;
+	    $criteria->select = "ser_id,ser_nombre,ser_valor, ser_fecha_inicio,ser_fecha_termino";
+	    $criteria->condition = 'ser_nombre=:HORA OR ser_nombre =:MEDIA';
+		$criteria->params = array(':HORA'=>$this->VH, ':MEDIA'=>$this->VMH);
+		$criteria->order='ser_id DESC';
+
+		return new CActiveDataProvider(get_class($this), array(
+        'criteria' => $criteria,
+    	));
+
+	    //$tarifa=Servicios::model()->findAll($criteria);
+	    //return $tarifa;
   	}
 
 	/**

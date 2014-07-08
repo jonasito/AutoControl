@@ -130,6 +130,7 @@ class AdministradorController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$id=Yii::app()->user->rut;
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed

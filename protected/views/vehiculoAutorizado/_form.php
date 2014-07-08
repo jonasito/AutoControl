@@ -35,6 +35,15 @@
 
 
 
+	<label>Tipo vehiculo</label>
+    <select name='tipo'>
+	    <?php
+	    $tipo=array("automovil","camioneta","jeep","carro","furgon","station wagon","motocicleta","buggy","cuatrimoto");
+	    foreach ($tipo as $i => $value) { ?>
+		  <option> <?php echo $tipo[$i] ?> </option>
+	    <?php } ?>
+	</select>
+
 
 
 	<div class="">
@@ -49,11 +58,11 @@
 		<?php //echo $form->error($model,'cli_rut'); ?>
 	</div-->
 
-	<div class="">
-		<?php echo $form->labelEx($model,'tipo'); ?>
-		<?php echo $form->textField($model,'tipo',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'tipo'); ?>
-	</div>
+	<!--div class="">
+		<?php// echo $form->labelEx($model,'tipo'); ?>
+		<?php// echo $form->textField($model,'tipo',array('size'=>20,'maxlength'=>20)); ?>
+		<?php// echo $form->error($model,'tipo'); ?>
+	</div-->
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Ingresar' : 'Guardar'); ?>

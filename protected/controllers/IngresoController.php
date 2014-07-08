@@ -201,25 +201,28 @@ class IngresoController extends Controller
 			$model->ing_hora_ing=$hora;
 
 			$model->ing_numero_est=$_POST['estacionamiento'];
-			
-			if($this->patente($model->v_patente)==1){
-				if($model->save()){
-					if(isset($_POST['numero'])){
-						$numero=$_POST["numero"];
-						$count = count($numero);
-						for ($i = 0; $i < $count; $i++) {
-						    $solicita=new Solicita;
-						    //echo $numero[$i];
-						    $solicita->ing_codigo=$model->ing_codigo;
-							$solicita->ser_id=$numero[$i];
-							$solicita->save();
+			if($this->existe_auto($model->v_patente)==1){
+				if($this->patente($model->v_patente)==1){
+					if($model->save()){
+						if(isset($_POST['numero'])){
+							$numero=$_POST["numero"];
+							$count = count($numero);
+							for ($i = 0; $i < $count; $i++) {
+							    $solicita=new Solicita;
+							    //echo $numero[$i];
+							    $solicita->ing_codigo=$model->ing_codigo;
+								$solicita->ser_id=$numero[$i];
+								$solicita->save();
+							}
 						}
+							$this->redirect(array('view','id'=>$model->ing_codigo));
 					}
-						$this->redirect(array('view','id'=>$model->ing_codigo));
 				}
-			}
 			else 
 				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');
+			}
+			else
+				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El auto aun se encuentra en el estacionamiento.');
 		}
 		$this->render('create',array(
 				'model'=>$model,
@@ -332,6 +335,13 @@ class IngresoController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function existe_auto($patente){
+		$pat=$patente;
+		$res=Ingreso::model()->validar_ingreso($pat);
+		if($res == null)return 1;
+	    return 0;
 	}
 
 	public function patente($cadena){ 

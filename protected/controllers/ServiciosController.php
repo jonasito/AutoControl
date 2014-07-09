@@ -184,6 +184,7 @@ class ServiciosController extends Controller
 			$tipo=$_POST['tipo'];
 			$model->attributes=$_POST['Servicios'];
 			$model->ser_nombre=$tipo;
+			$model->ser_descripcion='TARIFA BASICA';
 			if($model->ser_valor>0){
 					if($model->ser_fecha_inicio<=$model->ser_fecha_termino){
 						if($model->save()){

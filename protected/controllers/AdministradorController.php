@@ -82,13 +82,14 @@ class AdministradorController extends Controller
 		if(isset($_POST['Administrador']))
 		{
 			$model->attributes=$_POST['Administrador'];
+			$model->admin_estacionamientos=0;
 			$letras=$this->solo_letras($model->admin_nombre);
 			$letras2=$this->solo_letras($model->admin_apellido);
-			if(!($this->validaRut($model->admin_rut)) || ($model->admin_estacionamientos <= 0)) { 
-				if(!$this->validaRut($model->admin_rut))
+			
+			if(!$this->validaRut($model->admin_rut)){
 					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingrese un RUT valido');
-				if($model->admin_estacionamientos <= 0)
-					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
+				//if($model->admin_estacionamientos <= 0)
+				//	Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
 			}
 			else{
 				if($letras==1 && $letras2 ==1) {

@@ -33,13 +33,6 @@
 		    <?php } ?>	
 	</select>
 
-	<?php $model->ser_descripcion='TARIFA';  ?>
-	<div class="">
-		<?php //echo $form->labelEx($model,'ser_descripcion'); ?>
-		<?php //echo $form->textArea($model,'ser_descripcion',array('size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Nueva tarifa")); ?>
-		<?php //echo $form->error($model,'ser_descripcion'); ?>
-	</div>
-
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_valor'); ?>
 		<?php echo $form->textField($model,'ser_valor',array('placeholder'=>"Ej: 10000")); ?>

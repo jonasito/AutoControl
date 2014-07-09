@@ -1,3 +1,4 @@
+
 <h1>Información a cliente</h1>
 <div class="well", style='background-color: #FEEBC1'>
 <?php
@@ -21,7 +22,7 @@ $this->breadcrumbs=array(
 <?php
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',
-       // 'htmlOptions'=>array('class'=>'well'),
+       //'htmlOptions'=>array('class'=>'well'),
         'enableAjaxValidation'=>true,
     )); ?>
 
@@ -30,8 +31,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
     <label>Patente</label>
     
-    <input name="numero" type="text" placeholder="Ej: AA1111">
-   
+    <input name="numero" type="text" placeholder="Ej: AA1111">   
 
     <div class="radio">
       <label>

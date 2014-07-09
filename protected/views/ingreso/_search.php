@@ -31,7 +31,8 @@
 <div-->
 
 <!-- ---------------comentar-------------------- -->
-<div class="well">
+
+<div class="well", style='background-color: #FEEBC1'>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),

@@ -169,18 +169,14 @@ class ServiciosController extends Controller
 	}
 
 	public function actionTarifa(){
-		$model=Servicios::model()->tarifa();
-		
-
-		//$model=new Servicios;
-
+		//$model=Servicios::model()->tarifa();
+		$model=new Servicios;
 		if(isset($_POST['Servicios']))
 		{
+			$tipo=$_POST['tipo'];
 			$model->attributes=$_POST['Servicios'];
-			$letras=$this->solo_letras($model->ser_nombre);
-			$letras2=$this->solo_letras($model->ser_descripcion);
-			if($letras==1 && $letras2 ==1) {
-				if($model->ser_valor>0){
+			$model->ser_nombre=$tipo;
+			if($model->ser_valor>0){
 					if($model->ser_fecha_inicio<=$model->ser_fecha_termino){
 						if($model->save()){
 							$this->redirect(array('view','id'=>$model->ser_id));
@@ -193,22 +189,10 @@ class ServiciosController extends Controller
 				else{
 					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El valor ingresado debe ser mayor que 0');
 				}
-					
-			}
-			else{
-					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> Debe ingresar solo letras');
-			}
-			
 		}
-
 		$this->render('tarifa',array(
-			'dataProvider'=>$model,
+			'model'=>$model,
 		));
-
-
-		/*$this->render('tarifa',array(
-			'dataProvider'=>$dataProvider,
-		));*/	
 	}
 
 	

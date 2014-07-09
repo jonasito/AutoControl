@@ -1,12 +1,4 @@
 <label>Generar Boleta</label>
-<?php
-
-$this->breadcrumbs=array(
-    'Ingreso'=>array('index'),
-    'Boleta',
-);
-
-?>
 
 <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',

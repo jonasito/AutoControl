@@ -1,12 +1,13 @@
 <label>Boleta</label>
 
 <?php
-    $media=400;
-    $hora=700;
+    $media=Servicios::model()->tarifa_mediahora();
+    $hora=Servicios::model()->tarifa_hora();
 ?>    
 
 <?php
     echo "---------------- Entrada --------------------";
+    //echo 'hora= '.$hora.' media= '.$media;
     echo '<label>Código ingreso # '.$registro->ing_codigo.'</label>';
     echo '<label>Patente '.$registro->v_patente.'</label>';
     echo '<label>Fecha '.$registro->ing_fecha.'</label>';

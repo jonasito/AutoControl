@@ -45,15 +45,15 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 		<?php echo $form->error($model,'admin_contraseña'); ?>
 	</div>
 
-	<div class="">
-		<?php echo $form->labelEx($model,'admin_estacionamientos'); ?>
-		<?php echo $form->textField($model,'admin_estacionamientos',array('numerical', 'min'=>0, 'intergerOnly'=>true, 'placeholder'=>'Ej: 30')); ?>
-		<?php echo $form->error($model,'admin_estacionamientos'); ?>
-	</div>
+	<!--div class="">
+		<?php //echo $form->labelEx($model,'admin_estacionamientos'); ?>
+		<?php //echo $form->textField($model,'admin_estacionamientos',array('numerical', 'min'=>0, 'intergerOnly'=>true, 'placeholder'=>'Ej: 30')); ?>
+		<?php //echo $form->error($model,'admin_estacionamientos'); ?>
+	</div-->
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
-		<?php echo CHtml::resetButton('Cancelar'); ?>
+		<?php //echo CHtml::resetButton('Cancelar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -136,6 +136,33 @@ class Servicios extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Servicios the static model class
 	 */
+
+	public function tarifa_hora(){
+  		$sql = "select ser_id,ser_valor from servicios where ser_id=(select max(ser_id) from servicios where ser_nombre='HORA')";		           
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		$result = $command->queryAll();
+
+		//while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+        //	$hora=$line['ser_valor'];
+    	//}
+		$hora=$result[0]['ser_valor'];
+		return $hora;
+  	}
+
+  	public function tarifa_mediahora(){
+  		$sql = "select ser_id,ser_valor from servicios where ser_id=(select max(ser_id) from servicios where ser_nombre='MEDIA HORA')";		           
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		$result = $command->queryAll();
+
+		//while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+        //	$media=$line['ser_valor'];
+    	//}
+		$media=$result[0]['ser_valor'];
+		return $media;	
+  	}
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

@@ -155,13 +155,8 @@ class ServiciosController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
-	/**
-	 * Lists all models.
-	 */
 	public function actionIndex()
 	{
-		$hora="HORA";
-		$media="MEDIA HORA";
 		//$dataProvider=new CActiveDataProvider('Servicios');
 		$dataProvider=new CActiveDataProvider('Servicios',array(
 					      'criteria'=>array(
@@ -180,9 +175,7 @@ class ServiciosController extends Controller
 		));	
 	}
 
-	/**
-	 * Manages all models.
-	 */
+	
 	public function actionAdmin()
 	{
 		$model=new Servicios('search');

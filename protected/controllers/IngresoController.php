@@ -56,7 +56,6 @@ class IngresoController extends Controller
 
 	public function actionBoleta()
 	{
-		
 		if(!isset($_POST['numero']))
 		{
 			$this->render('boleta');

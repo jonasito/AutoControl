@@ -3,9 +3,9 @@
 /* @var $model VehiculoAutorizado */
 
 $this->breadcrumbs=array(
-    'Vehículo Autorizado'=>array('index'),
-    $model->admin_rut=>array('view','id'=>$model->admin_rut),
-    'Actualizar',
+    //'Vehículo Autorizado'=>array('index'),
+    //$model->admin_rut=>array('view','id'=>$model->admin_rut),
+    //'Actualizar',
 );
 
 $this->menu=array(

@@ -5,7 +5,7 @@
 
 
 
-
+<div class="well", style='background-color: #FEEBC1'>
 <div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ing_codigo')); ?>:</b>
@@ -33,4 +33,5 @@
 	<br />
 
 
+</div>
 </div>

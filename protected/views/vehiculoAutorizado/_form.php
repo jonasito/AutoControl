@@ -3,9 +3,7 @@
 /* @var $model VehiculoAutorizado */
 /* @var $form CActiveForm */
 ?>
-
-<div class="well">
-
+<div class="well", style='background-color: #FEEBC1'>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'vehiculo-autorizado-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -18,9 +16,6 @@
 	<p class="note">Campos con<span class="required">*</span> son obligatorios</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-
-
 
 	<?php
     $cli=ClientePremium::model()->findAll();
@@ -71,3 +66,4 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+</div>

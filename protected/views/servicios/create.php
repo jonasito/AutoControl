@@ -3,8 +3,8 @@
 /* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicios'=>array('index'),
-	'Ingresar',
+	//'Servicios'=>array('index'),
+	//'Ingresar',
 );
 
 $this->menu=array(

@@ -3,15 +3,15 @@
 /* @var $model Ingreso */
 
 $this->breadcrumbs=array(
-    'Ingreso'=>array('index'),
-    'Actualizar',
+    //'Ingreso'=>array('index'),
+    //'Actualizar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
 	array('label'=>'Registrar Ingreso', 'url'=>array('create')),
-	array('label'=>'Ver Ingreso', 'url'=>array('view', 'id'=>$model->ing_codigo)),
-	array('label'=>'Administrar Ingreso', 'url'=>array('admin')),
+	//array('label'=>'Ver Ingreso', 'url'=>array('view', 'id'=>$model->ing_codigo)),
+	//array('label'=>'Administrar Ingreso', 'url'=>array('admin')),
 );
 ?>
 

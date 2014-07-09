@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Administrador',
+	//'Administrador',
 );
 
 $this->menu=array(

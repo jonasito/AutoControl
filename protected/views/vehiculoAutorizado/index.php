@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Vehículo Autorizado',
+	//'Vehículo Autorizado',
 );
 
 $this->menu=array(

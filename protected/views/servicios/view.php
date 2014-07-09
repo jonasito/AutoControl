@@ -3,21 +3,22 @@
 /* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicios'=>array('index'),
-	$model->ser_id,
+	//'Servicios'=>array('index'),
+	//$model->ser_id,
 );
 
 $this->menu=array(
 	array('label'=>'Listar Servicios', 'url'=>array('index')),
 	array('label'=>'Ingresar Servicios', 'url'=>array('create')),
+    array('label'=>'Administrar Servicios', 'url'=>array('admin')),
 	array('label'=>'Actualizar Servicios', 'url'=>array('update', 'id'=>$model->ser_id)),
 	array('label'=>'Eliminar Servicios', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ser_id),'confirm'=>'Estás seguro que deseas eliminar este servicio?')),
-	array('label'=>'Administrar Servicios', 'url'=>array('admin')),
+	
 );
 ?>
 
-<h1>Ver Servicio #<?php echo $model->ser_id; ?></h1>
-
+<h1>Ver Servicio <?php echo $model->ser_id; ?></h1>
+<div class="well", style='background-color: #FEEBC1'>
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,
     'attributes'=>array(
@@ -29,4 +30,5 @@ $this->menu=array(
         array('name'=>'ser_fecha_termino', 'label'=>'Fecha término'),
     ),
 )); ?>
+</div>
 

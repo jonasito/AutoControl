@@ -1,7 +1,7 @@
 <?php
 
 $this->breadcrumbs=array(
-    'Disponibilidad',
+   // 'Disponibilidad',
 );
 
 ?>
@@ -13,7 +13,7 @@ $libre=Ingreso::model()->disponibilidad();
 
 if(!is_null($libre)){ ?>
 
-<div class="well span8">
+<div class="well span8" style='background-color: #FEEBC1'>
     <table class="table">
         <thead>
             <tr>

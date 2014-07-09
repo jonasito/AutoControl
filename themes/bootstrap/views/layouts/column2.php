@@ -1,10 +1,17 @@
+<br>
 <?php $this->beginContent('//layouts/main'); ?>
+	<div class= 'well'>
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span3" >
+
+        	<br>
          <?php
 			$this->beginWidget('zii.widgets.CPortlet', array(
-				'title'=>'Operations',
+				'title'=>'Opciones: ',
 			));
+			?>
+			<br>
+			<?php
 			$this->widget('zii.widgets.CMenu', array(
 				'items'=>$this->menu,
 				'htmlOptions'=>array('class'=>'sidebar'),
@@ -18,5 +25,6 @@
 			<?php echo $content; ?>
 		</div><!-- content -->
 	</div>
+</div>
 </div>
 <?php $this->endContent(); ?>

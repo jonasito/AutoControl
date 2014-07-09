@@ -3,16 +3,16 @@
 /* @var $model ClientePremium */
 
 $this->breadcrumbs=array(
-    'Cliente Premium'=>array('index'),
-    $model->cli_rut=>array('view','id'=>$model->cli_rut),
-    'Actualizar',
+    //'Cliente Premium'=>array('index'),
+    //$model->cli_rut=>array('view','id'=>$model->cli_rut),
+    //'Actualizar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Cliente Premium', 'url'=>array('index')),
 	array('label'=>'Registrar Cliente Premium', 'url'=>array('create')),
-	array('label'=>'Ver Cliente Premium', 'url'=>array('view', 'id'=>$model->cli_rut)),
-	array('label'=>'Administrar Cliente Premium', 'url'=>array('admin')),
+	//array('label'=>'Ver Cliente Premium', 'url'=>array('view', 'id'=>$model->cli_rut)),
+	//array('label'=>'Administrar Cliente Premium', 'url'=>array('admin')),
 );
 ?>
 

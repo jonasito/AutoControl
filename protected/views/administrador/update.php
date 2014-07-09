@@ -3,16 +3,16 @@
 /* @var $model Administrador */
 
 $this->breadcrumbs=array(
-    'Administrador'=>array('index'),
-    $model->admin_rut=>array('view','id'=>$model->admin_rut),
-    'Actualizar',
+  //  'Administrador'=>array('index'),
+   // $model->admin_rut=>array('view','id'=>$model->admin_rut),
+    //'Actualizar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Administrador', 'url'=>array('index')),
 	array('label'=>'Registrar Administrador', 'url'=>array('create')),
-	array('label'=>'Ver Administrador', 'url'=>array('view', 'id'=>$model->admin_rut)),
-	array('label'=>'Administrar Administrador', 'url'=>array('admin')),
+	//array('label'=>'Ver Administrador ', 'url'=>array('view', 'id'=>$model->admin_rut)),
+	//array('label'=>'Administrar Administrador', 'url'=>array('admin')),
 );
 ?>
 

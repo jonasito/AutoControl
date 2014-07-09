@@ -2,8 +2,8 @@
 /* @var $this AdministradorController */
 /* @var $data Administrador */
 ?>
+<div class="well", style='background-color: #FEEBC1'>
 
-<div class="table table-bordered table-striped">
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_rut')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->admin_rut), array('view', 'id'=>$data->admin_rut)); ?>

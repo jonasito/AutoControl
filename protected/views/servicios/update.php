@@ -3,16 +3,17 @@
 /* @var $model Servicios */
 
 $this->breadcrumbs=array(
-	'Servicios'=>array('index'),
-	$model->ser_id=>array('view','id'=>$model->ser_id),
-	'Actualizar',
+	//'Servicios'=>array('index'),
+	//$model->ser_id=>array('view','id'=>$model->ser_id),
+	//'Actualizar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Servicios', 'url'=>array('index')),
 	array('label'=>'Ingresar Servicios', 'url'=>array('create')),
-	array('label'=>'Ver Servicios', 'url'=>array('view', 'id'=>$model->ser_id)),
-	array('label'=>'Administrar Servicios', 'url'=>array('admin')),
+    //array('label'=>'Administrar Servicios', 'url'=>array('admin')),
+	//array('label'=>'Ver Servicios', 'url'=>array('view', 'id'=>$model->ser_id)),
+	
 );
 ?>
 

@@ -3,8 +3,8 @@
 /* @var $model Ingreso */
 
 $this->breadcrumbs=array(
-    'Ingreso'=>array('index'),
-    'Administrar',
+    //'Ingreso'=>array('index'),
+    //'Administrar',
 );
 
 $this->menu=array(
@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Ingresos</h1>
 
+<div class="well", style='background-color: #FEEBC1'>
 <?php echo CHtml::link('Búsqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -56,3 +57,4 @@ $('.search-form form').submit(function(){
         ),
     ),
 )); ?>
+</div>

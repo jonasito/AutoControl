@@ -3,8 +3,8 @@
 /* @var $model VehiculoAutorizado */
 
 $this->breadcrumbs=array(
-    'Vehículo Autorizado'=>array('index'),
-    'Administrar',
+    //'Vehículo Autorizado'=>array('index'),
+    //'Administrar',
 );
 
 $this->menu=array(

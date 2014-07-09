@@ -3,7 +3,7 @@
 /* @var $model ClientePremium */
 /* @var $form CActiveForm */
 ?>
-
+<div class="well", style='background-color: #FEEBC1'>
 <div class="wide form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -53,3 +53,4 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- search-form -->
+</div>

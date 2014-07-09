@@ -2,7 +2,7 @@
 /* @var $this ServiciosController */
 /* @var $data Servicios */
 ?>
-
+<div class="well", style='background-color: #FEEBC1'>
 <div class="table table-bordered table-striped">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('ser_nombre')); ?>:</b>
@@ -27,4 +27,5 @@
 	<br>
 
 
+</div>
 </div>

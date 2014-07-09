@@ -7,16 +7,16 @@ $hora=date("H:i:s",time()-21600);
 /* @var $form CActiveForm */
 
 ?>
-
+<div class="well", style='background-color: #FEEBC1'>
 	<?php /** @var BootActiveForm $form */
 	//$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	    'id'=>'ingreso-form',
-	    'htmlOptions'=>array('class'=>'well'),
+	    //'htmlOptions'=>array('class'=>'well'),
 	    'enableAjaxValidation'=>true,
 	)); ?>
 
-	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos con<span class="required">*</span> son obligatorios.</p, >
 
 	<?php echo $form->errorSummary($model); ?>
  
@@ -67,4 +67,4 @@ $hora=date("H:i:s",time()-21600);
 
 	<?php $this->endWidget(); ?>
 
-
+</div>

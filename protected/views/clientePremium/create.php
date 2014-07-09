@@ -3,8 +3,8 @@
 /* @var $model ClientePremium */
 
 $this->breadcrumbs=array(
-    'Administrador'=>array('index'),
-    'Registrar',
+   // 'Administrador'=>array('index'),
+    //'Registrar',
 );
 
 $this->menu=array(

@@ -4,21 +4,23 @@
 $fecha=date('d-m-Y');
 
 $this->breadcrumbs=array(
-    'Servicios'=>array('index'),
-    $model->ing_codigo,
+   // 'Servicios'=>array('index'),
+    //$model->ing_codigo,
 );
 
 $this->menu=array(
 	array('label'=>'Listar Ingreso', 'url'=>array('index')),
 	array('label'=>'Registrar Ingreso', 'url'=>array('create')),
+    array('label'=>'Administrar Ingreso', 'url'=>array('admin')),
 	array('label'=>'Actualizar Ingreso', 'url'=>array('update', 'id'=>$model->ing_codigo)),
 	array('label'=>'Eliminar Ingreso', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ing_codigo),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Ingreso', 'url'=>array('admin')),
+	
 );
 ?>
 
-<h1>Ingreso # <?php echo $model->ing_codigo; ?></h1>
+<h1>Ingreso  <?php echo $model->ing_codigo; ?></h1>
 
+<div class="well", style='background-color: #FEEBC1'>
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,
     'attributes'=>array(
@@ -30,7 +32,7 @@ $this->menu=array(
         array('name'=>'ing_numero_est', 'label'=>'Estacionamiento'),
     ),
 )); ?>
-
+</div>
 <?php $this->beginWidget('bootstrap.widgets.TbModal', array('id'=>'myServicios')); ?>
  
 <div class="modal-header">

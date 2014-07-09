@@ -3,8 +3,8 @@
 /* @var $model ClientePremium */
 
 $this->breadcrumbs=array(
-    'Cliente Premium'=>array('index'),
-    'Administrar',
+   // 'Cliente Premium'=>array('index'),
+    //'Administrar',
 );
 
 $this->menu=array(
@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Cliente Premium</h1>
 
+<div class="well", style='background-color: #FEEBC1'>
 <?php echo CHtml::link('Búsqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -39,6 +40,7 @@ $('.search-form form').submit(function(){
 <?php $this->widget('bootstrap.widgets.TbGridView', array(
     'type'=>'striped bordered condensed',
     'dataProvider'=>$model->search(),
+    'filter'=>$model,
     'template'=>"{items}",
     'columns'=>array(
         array('name'=>'cli_rut', 'header'=>'Rut'),
@@ -56,4 +58,5 @@ $('.search-form form').submit(function(){
         ),
     ),
 )); ?>
+</div>
 

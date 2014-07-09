@@ -4,9 +4,9 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 /* @var $this AdministradorController */
 /* @var $model Administrador */
 /* @var $form CActiveForm */
-
 ?>
-<div class="form">
+
+	<div class="well", style='background-color: #FEEBC1'>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'administrador-form',
@@ -17,43 +17,38 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_rut'); ?>
-		<?php echo $form->textField($model,'admin_rut',array('size'=>12,'maxlength'=>12, 'placeholder'=>'Ej: 111111111')); ?>
+		<?php echo $form->textField($model,'admin_rut',array('size'=>12,'maxlength'=>12,'placeholder'=>'Ej: 111111111')); ?>
 		<?php echo $form->error($model,'admin_rut'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_nombre'); ?>
-		<?php echo $form->textField($model,'admin_nombre',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Ej: Juan')); ?>
+		<?php echo $form->textField($model,'admin_nombre',array('size'=>50,'maxlength'=>50,'placeholder'=>'Ej: Juan')); ?>
 		<?php echo $form->error($model,'admin_nombre'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_apellido'); ?>
-		<?php echo $form->textField($model,'admin_apellido',array('size'=>50,'maxlength'=>50, 'placeholder'=>'Ej: Perez')); ?>
+		<?php echo $form->textField($model,'admin_apellido',array('size'=>50,'maxlength'=>50,'placeholder'=> "Ej: Pérez")); ?>
 		<?php echo $form->error($model,'admin_apellido'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_contraseña'); ?>
-		<?php echo $form->passwordField($model,'admin_contraseña',array('type'=>'password', 'size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'admin_contraseña',array('type'=>'password', 'size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'admin_contraseña'); ?>
 	</div>
-
-	<!--div class="">
-		<?php //echo $form->labelEx($model,'admin_estacionamientos'); ?>
-		<?php //echo $form->textField($model,'admin_estacionamientos',array('numerical', 'min'=>0, 'intergerOnly'=>true, 'placeholder'=>'Ej: 30')); ?>
-		<?php //echo $form->error($model,'admin_estacionamientos'); ?>
-	</div-->
 
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 		<?php //echo CHtml::resetButton('Cancelar'); ?>
+
 	</div>
 
 <?php $this->endWidget(); ?>

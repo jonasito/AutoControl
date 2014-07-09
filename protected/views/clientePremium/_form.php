@@ -4,8 +4,8 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="well">
 
+<div class="well", style='background-color: #FEEBC1'>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'cliente-premium-form',
 	// Please note: When you enable ajax validation, make sure the corresponding

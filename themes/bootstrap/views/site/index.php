@@ -15,5 +15,9 @@ $this->pageTitle=Yii::app()->name;
         array('image'=>'http://downtownlapaz.com/img/renders/ESTACIONAMIENTO2.jpg', 'label'=>'Cercania', 'caption'=>'Cerca del centro de la ciudad'),
     ),
 )); ?>
+<div class='well', style='background-color: #FEEBC1'>
+	</div>
 		
 </div>
+
+

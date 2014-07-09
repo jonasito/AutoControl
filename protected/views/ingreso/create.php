@@ -3,8 +3,8 @@
 /* @var $model Ingreso */
 
 $this->breadcrumbs=array(
-    'Ingreso'=>array('index'),
-    'Registrar',
+   // 'Ingreso'=>array('index'),
+    //'Registrar',
 );
 
 

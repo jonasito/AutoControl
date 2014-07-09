@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Cliente Premium',
+	//'Cliente Premium',
 );
 
 $this->menu=array(

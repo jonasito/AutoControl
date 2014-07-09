@@ -8,6 +8,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 return array(
 	'language'=>'es',
 	'theme'=>'bootstrap',
+	//'theme'=>'blackboot',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'AutoControl',
 

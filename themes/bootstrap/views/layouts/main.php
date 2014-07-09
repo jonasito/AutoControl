@@ -142,7 +142,7 @@
 
     <?php echo $content; ?>
 
-    <div class="clear"></div>
+    <!--div class="clear"></div-->
 
     <div id="footer">
         Creado en &copy; <?php echo date('Y'); ?> por Grupo 8.<br/>

@@ -169,7 +169,23 @@ class ServiciosController extends Controller
 	}
 
 	public function actionEstacionamiento(){
+		if(isset($_POST['cant'])){
+			$cantidad=$_POST['cant'];
+			if($cantidad>0){
+				 Servicios::model()->update_all($cantidad);
+
+				$model=new Servicios('search');
+				$model->unsetAttributes();  // clear any default values
+				$this->render('admin',array(
+					'model'=>$model,
+				));
+
+
+			}
+			else Yii::app()->user->setFlash('error', '<strong>UPS!</strong> UPS! error en cantidad de estacionamientos');
+		}
 		$this->render('estacionamiento');
+
 	}
 
 	public function actionFijar_tarifas(){

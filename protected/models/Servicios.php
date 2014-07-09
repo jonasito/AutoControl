@@ -137,6 +137,13 @@ class Servicios extends CActiveRecord
 	 * @return Servicios the static model class
 	 */
 
+	public function update_all($cantidad){
+		$sql = "update administrador set admin_estacionamientos= $cantidad";		           
+		$connection = Yii::app()->db;
+		$command = $connection->createCommand($sql);
+		$result = $command->queryAll();
+	}
+
 	public function tarifa_hora(){
   		$sql = "select ser_id,ser_valor from servicios where ser_id=(select max(ser_id) from servicios where ser_nombre='HORA')";		           
 		$connection = Yii::app()->db;

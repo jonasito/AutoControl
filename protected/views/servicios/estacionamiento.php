@@ -11,8 +11,8 @@
 )); ?>
 
 
-<form class="well form-inline">
-  <input type="text" class="span3" placeholder="ej: 30">
+<form class="well form-inline" method="post">
+  <input type="text" name="cant" class="span3" placeholder="ej: 30">
   <button type="submit" class="btn">Guardar</button>
 </form>
  

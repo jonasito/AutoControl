@@ -1,21 +1,16 @@
+
 <label>Generar Boleta</label>
-<?php
 
-$this->breadcrumbs=array(
-    'Ingreso'=>array('index'),
-    'Boleta',
-);
-
-?>
 
 <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',
-        'htmlOptions'=>array('class'=>'well'),
+        //'htmlOptions'=>array('class'=>'well'),
         'enableAjaxValidation'=>true,
     )); ?>
 
 <?php $patentes=Ingreso::model()->ocupados(); ?>
 
+<div class="well", style='background-color: #FEEBC1'>
     <label>Seleccione patente</label>
     <select name='numero'>'
         <?php
@@ -26,12 +21,12 @@ $this->breadcrumbs=array(
         <?php } ?>
     </select>
 
-<div class="form-actions">
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'danger', 'label'=>'Generar boleta')); ?>
+<div class="form-actions", style='background-color: #FEEBC1'>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'', 'label'=>'Generar boleta')); ?>
 </div>
 
 <?php $this->endWidget(); ?>
-
+</div>
 
 
 

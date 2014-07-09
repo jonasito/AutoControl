@@ -3,19 +3,24 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
+
+
 $this->pageTitle=Yii::app()->name . ' - Ingresar';
 ?>
-
+<div class="well">
 <h1>Ingreso</h1>
 
 <!--p>Please fill out the following form with your login credentials:</p-->
 
-<div class="form">
+<div class="well", style='background-color: #FEEBC1'>
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
-    'type'=>'horizontal',
+    'type'=>'striped bordered condensed',
 	'enableClientValidation'=>true,
+
+
+
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
@@ -30,14 +35,15 @@ $this->pageTitle=Yii::app()->name . ' - Ingresar';
 
 	<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
 
-	<div class="form-actions">
+	
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
             'buttonType'=>'submit',
-            'type'=>'primary',
+            'type'=>'',
             'label'=>'Ingresar',
         )); ?>
-	</div>
+	
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+</div>

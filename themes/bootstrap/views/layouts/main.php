@@ -124,14 +124,14 @@
 )); ?>
 
 <div class="container" id="page">
-    <?php $this->widget('bootstrap.widgets.TbButton', array(
+    <?php /*$this->widget('bootstrap.widgets.TbButton', array(
         'label'=>'Ver disponibilidad',
         'type'=>'danger',
         'htmlOptions'=>array(
             'data-toggle'=>'modal',
             'data-target'=>'#myModal',
         ),
-    )); ?>
+    )); */?>
 
     <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(

@@ -160,7 +160,14 @@ class ServiciosController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Servicios');
+		$hora="HORA";
+		$media="MEDIA HORA";
+		//$dataProvider=new CActiveDataProvider('Servicios');
+		$dataProvider=new CActiveDataProvider('Servicios',array(
+					      'criteria'=>array(
+					        'condition' => "ser_nombre!='HORA' and ser_nombre!='MEDIA HORA' ",
+					      ),
+					    ));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

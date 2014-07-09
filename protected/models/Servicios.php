@@ -93,6 +93,11 @@ class Servicios extends CActiveRecord
 		$criteria->compare('ser_nombre',$this->ser_nombre,true);
 		$criteria->compare('ser_descripcion',$this->ser_descripcion,true);
 		$criteria->compare('ser_valor',$this->ser_valor);
+
+		//$criteria->condition = 'ser_nombre<>"HORA" and ser_nombre <>"MEDIA HORA"';
+		//$criteria->params = array(':HORA'=>$this->VH, ':MEDIA'=>$this->VMH);
+		//$criteria->order='ser_id DESC';		
+
 		//$criteria->compare('ser_fecha_inicio',$this->ser_fecha_inicio,true);
 		//$criteria->compare('ser_fecha_termino',$this->ser_fecha_termino,true);
 

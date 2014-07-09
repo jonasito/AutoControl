@@ -32,7 +32,7 @@ class AdministradorController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','ventas'),
+				'actions'=>array('create','update','admin','delete','ventas','updateme'),
 				'users'=>array('@'),
 			),
 			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -128,6 +128,14 @@ class AdministradorController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+	public function actionUpdateme(){
+		$id=Yii::app()->session['id'];
+		$model=$this->loadModel($id);
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+
 	public function actionUpdate($id)
 	{
 		$id=Yii::app()->user->rut;

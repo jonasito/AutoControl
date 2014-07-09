@@ -48,17 +48,18 @@ class UserIdentity extends CUserIdentity
 	}
 
 	public function inicializaAdmin($user) {
-      /*$admin = array();
-      $admin['rut'] = $user->admin_rut;
-      $admin['nombre'] = $user->admin_nombre;
-      $admin['est'] = $user->admin_estacionamientos;*/
-      Yii::app()->getSession()->add('est', $user->admin_estacionamientos);
       
+      Yii::app()->session['id'] = $user->admin_rut;
+		//echo Yii::app()->session['var'];
+
+      /*Yii::app()->getSession()->add('est', $user->admin_estacionamientos);
+       Yii::app()->getSession()->add('rut', $user->admin_rut);
+
+
       Yii::app()->user->setState('nombre',$user->admin_nombre);
       Yii::app()->user->setState('est',$user->admin_estacionamientos);
-      Yii::app()->user->setState('rut',$user->admin_rut);
-      //$this->addToSession('admin', $admin);
-     // return $admin;
+      Yii::app()->user->setState('admin_rut',$user->admin_rut);
+      */
   }
 
 }

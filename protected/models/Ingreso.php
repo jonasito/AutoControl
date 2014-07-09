@@ -128,22 +128,24 @@ class Ingreso extends CActiveRecord
   	}
 
   	public function validar_ingreso($patente){
-  		/*$patente='jonasnn';
-  		$criteria=new CDbCriteria;
-  		//$criteria->compare('v_patente','='.$patente);
-	    $criteria->condition = 'v_patente=:patente';
-		$criteria->params = array(':patente'=>'jonasnn');
-		$criteria->condition = 'ing_hora_sal is null';
-	    $historial=Ingreso::model()->findAll($criteria);
-	    return $historial;*/
+  		/*
 	    $sql = "SELECT *
 				from ingreso
 				where ing_hora_sal is null and v_patente='$patente' ";
-		           
+		*/    
+		$sql = "SELECT v_patente
+				from ingreso
+				where ing_hora_sal is null";
+
 		$connection = Yii::app()->db;
 		$command = $connection->createCommand($sql);
 		$dataReader = $command->queryAll();
-		return $dataReader;
+
+		foreach($dataReader as $dato){
+			if($dato['v_patente']==$patente) return 1;
+		}
+		return 0;
+		//return $dataReader;
   	}
 
   	public function ocupados(){

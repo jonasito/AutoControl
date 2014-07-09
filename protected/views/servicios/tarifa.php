@@ -22,10 +22,6 @@ $model=Servicios::model();
  
  <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'servicios-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
 
@@ -103,7 +99,7 @@ $model=Servicios::model();
 
 				<div class="buttons">
 					<?php echo CHtml::submitButton($model->isNewRecord ? 'Ingresar' : 'Guardar'); ?>
-					<?php echo CHtml::resetButton('Cancelar'); ?>
+					<?php //echo CHtml::resetButton('Cancelar'); ?>
 				</div>
 			</div>
 <?php $this->endWidget(); ?>

@@ -193,6 +193,7 @@ class IngresoController extends Controller
 		$fecha=date('d-m-Y');
 		if(isset($_POST['Ingreso']))
 		{
+			$patente=$model->v_patente;
 			$fecha=date('d-m-Y');
 			$hora=date("H:i:s",time()-21600);
 			$model->attributes=$_POST['Ingreso'];
@@ -200,7 +201,7 @@ class IngresoController extends Controller
 			$model->ing_hora_ing=$hora;
 
 			$model->ing_numero_est=$_POST['estacionamiento'];
-			if($this->existe_auto($model->v_patente)==1){
+			//if($this->existe_auto($patente)==0){
 				if($this->patente($model->v_patente)==1){
 					if($model->save()){
 						if(isset($_POST['numero'])){
@@ -219,9 +220,9 @@ class IngresoController extends Controller
 				}
 			else 
 				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa una patente solo con numeros y letras.');
-			}
-			else
-				Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El auto aun se encuentra en el estacionamiento.');
+			//}
+			//else
+			//	Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El auto aun se encuentra en el estacionamiento.');
 		}
 		$this->render('create',array(
 				'model'=>$model,
@@ -339,8 +340,16 @@ class IngresoController extends Controller
 	public function existe_auto($patente){
 		$pat=$patente;
 		$res=Ingreso::model()->validar_ingreso($pat);
-		if($res == null)return 1;
-	    return 0;
+
+
+		$dataProvider=new CActiveDataProvider('Ingreso');
+
+
+		if($res==1)$this->render('index',array('dataProvider'=>$dataProvider,));
+		return $res;
+		//return pg_affected_rows($res);
+		//if($res == null)return 1;
+	    //return 0;
 	}
 
 	public function patente($cadena){ 

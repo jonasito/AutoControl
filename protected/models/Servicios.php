@@ -109,8 +109,12 @@ class Servicios extends CActiveRecord
 	public function serviciosActivos($fecha){
 	    $criteria=new CDbCriteria;
 	    $criteria->select = "ser_id,ser_nombre,ser_valor";
-	    $criteria->condition = 'ser_fecha_inicio<=:fservicio AND ser_fecha_termino>=:fservicio';
+	    $criteria->condition = 'ser_fecha_inicio<=:fservicio AND ser_fecha_termino>=:fservicio and ser_nombre <>  ';
 		$criteria->params = array(':fservicio'=>$fecha);
+
+		$criteria->condition = 'ser_nombre<>:HORA AND ser_nombre <>:MEDIA';
+		$criteria->params = array(':HORA'=>$this->VH, ':MEDIA'=>$this->VMH);
+	    
 	    $servi=Servicios::model()->findAll($criteria);
 	    return $servi;
   	}

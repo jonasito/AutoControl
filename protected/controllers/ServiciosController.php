@@ -173,16 +173,9 @@ class ServiciosController extends Controller
 			$cantidad=$_POST['cant'];
 			if($cantidad>0){
 				 Servicios::model()->update_all($cantidad);
-
-				$model=new Servicios('search');
-				$model->unsetAttributes();  // clear any default values
-				$this->render('admin',array(
-					'model'=>$model,
-				));
-
-
+				 Yii::app()->user->setFlash('error', '<strong>OK!</strong> actualizado');
 			}
-			else Yii::app()->user->setFlash('error', '<strong>UPS!</strong> UPS! error en cantidad de estacionamientos');
+			else Yii::app()->user->setFlash('error', '<strong>UPS!</strong> error en cantidad de estacionamientos');
 		}
 		$this->render('estacionamiento');
 

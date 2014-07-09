@@ -5,7 +5,20 @@
 $this->breadcrumbs=array(
     //'Info Cliente',
 );
+?>
+<div class"portlet-content">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+            'label'=>'Ver disponibilidad',
+            'type'=>'danger',
+            'htmlOptions'=>array(
+                'data-toggle'=>'modal',
+                'data-target'=>'#myModal',
+            ),
+    )); ?>
+</div>
 
+
+<?php
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'patente-form',
        // 'htmlOptions'=>array('class'=>'well'),

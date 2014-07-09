@@ -82,13 +82,14 @@ class AdministradorController extends Controller
 		if(isset($_POST['Administrador']))
 		{
 			$model->attributes=$_POST['Administrador'];
+			$model->admin_estacionamientos=0;
 			$letras=$this->solo_letras($model->admin_nombre);
 			$letras2=$this->solo_letras($model->admin_apellido);
-			if(!($this->validaRut($model->admin_rut)) || ($model->admin_estacionamientos <= 0)) { 
-				if(!$this->validaRut($model->admin_rut))
+			
+			if(!$this->validaRut($model->admin_rut)){
 					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingrese un RUT valido');
-				if($model->admin_estacionamientos <= 0)
-					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
+				//if($model->admin_estacionamientos <= 0)
+				//	Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
 			}
 			else{
 				if($letras==1 && $letras2 ==1) {
@@ -131,6 +132,28 @@ class AdministradorController extends Controller
 	public function actionUpdateme(){
 		$id=Yii::app()->session['id'];
 		$model=$this->loadModel($id);
+		if(isset($_POST['Administrador']))
+		{
+			$model->attributes=$_POST['Administrador'];
+			$letras=$this->solo_letras($model->admin_nombre);
+			$letras2=$this->solo_letras($model->admin_apellido);
+			if(!($this->validaRut($model->admin_rut)) || ($model->admin_estacionamientos <= 0)) { 
+				if(!$this->validaRut($model->admin_rut))
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingrese un RUT valido');
+				if($model->admin_estacionamientos <= 0)
+					Yii::app()->user->setFlash('warning', '<strong>UPS!</strong> ingrese un numero de estacionamiento positivo');
+			}
+			else{
+				if($letras == 1 && $letras2 == 1){
+					if($model->save())
+					$this->redirect(array('view','id'=>$model->admin_rut));
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> ingresa un nombre y apellido solo con letras');
+				}	
+			}
+			
+		}
 		$this->render('update',array(
 			'model'=>$model,
 		));
@@ -138,7 +161,7 @@ class AdministradorController extends Controller
 
 	public function actionUpdate($id)
 	{
-		$id=Yii::app()->user->rut;
+		//$id=Yii::app()->user->rut;
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -241,7 +264,7 @@ class AdministradorController extends Controller
 	}
 
 	public function solo_letras($cadena){ 
-		$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+		$permitidos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ "; 
 		for ($i=0; $i<strlen($cadena); $i++){ 
 		if (strpos($permitidos, substr($cadena,$i,1))===false){ 
 		//no es válido; 

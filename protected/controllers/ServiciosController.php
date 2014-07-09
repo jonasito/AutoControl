@@ -32,7 +32,7 @@ class ServiciosController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','tarifa'),
+				'actions'=>array('create','update','admin','delete','tarifa','fijar_tarifas','estacionamiento'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -168,11 +168,40 @@ class ServiciosController extends Controller
 		));
 	}
 
+	public function actionEstacionamiento(){
+		$this->render('estacionamiento');
+	}
+
+	public function actionFijar_tarifas(){
+		$this->render('fijar_tarifas');
+	}
+
 	public function actionTarifa(){
-		$dataProvider=Servicios::model()->tarifa();
+		//$model=Servicios::model()->tarifa();
+		$model=new Servicios;
+		if(isset($_POST['Servicios']))
+		{
+			$tipo=$_POST['tipo'];
+			$model->attributes=$_POST['Servicios'];
+			$model->ser_nombre=$tipo;
+			$model->ser_descripcion='TARIFA BASICA';
+			if($model->ser_valor>0){
+					if($model->ser_fecha_inicio<=$model->ser_fecha_termino){
+						if($model->save()){
+							$this->redirect(array('view','id'=>$model->ser_id));
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('error', '<strong>UPS!</strong> La fecha de inicio debe ser menor o igual a la fecha de término');
+					}
+				}
+				else{
+					Yii::app()->user->setFlash('error', '<strong>UPS!</strong> El valor ingresado debe ser mayor que 0');
+				}
+		}
 		$this->render('tarifa',array(
-			'dataProvider'=>$dataProvider,
-		));	
+			'model'=>$model,
+		));
 	}
 
 	

@@ -47,18 +47,7 @@
 		<?php echo $form->error($model,'v_patente'); ?>
 	</div>
 
-	<!--div class="">
-		<?php //echo $form->labelEx($model,'cli_rut'); ?>
-		<?php //echo $form->textField($model,'cli_rut',array('size'=>12,'maxlength'=>12)); ?>
-		<?php //echo $form->error($model,'cli_rut'); ?>
-	</div-->
-
-	<!--div class="">
-		<?php// echo $form->labelEx($model,'tipo'); ?>
-		<?php// echo $form->textField($model,'tipo',array('size'=>20,'maxlength'=>20)); ?>
-		<?php// echo $form->error($model,'tipo'); ?>
-	</div-->
-
+	
 	<div class="buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Ingresar' : 'Guardar'); ?>
 	</div>

@@ -32,7 +32,7 @@ class ServiciosController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','tarifa'),
+				'actions'=>array('create','update','admin','delete','tarifa','fijar_tarifas','estacionamiento'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -166,6 +166,14 @@ class ServiciosController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+	}
+
+	public function actionEstacionamiento(){
+		$this->render('estacionamiento');
+	}
+
+	public function actionFijar_tarifas(){
+		$this->render('fijar_tarifas');
 	}
 
 	public function actionTarifa(){

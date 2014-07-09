@@ -1,17 +1,17 @@
 <h1>Tarifa</h1>
 
-<?php 
-//$tarifa=Servicios::model()->tarifa();
-?>
+<?php $this->widget('bootstrap.widgets.TbMenu', array(
+    'type'=>'tabs', // '', 'tabs', 'pills' (or 'list')
+    'stacked'=>false, // whether this is a stacked menu
+    'items'=>array(
+        array('label'=>'Ver tarifas',  'url'=>array('/servicios/fijar_tarifas')),
+        array('label'=>'Crear tarifa', 'url'=>array('/servicios/tarifa')),
+        array('label'=>'Fijar estacionamientos', 'url'=>array('/servicios/estacionamiento')),
+    ),
+)); ?>
 
-<?php/*$this->widget('zii.widgets.CListView', array(
-    //'dataProvider'=>$dataProvider,
-    'dataProvider'=>$tarifa,
-    'itemView'=>'_view',
-));*/?>
 
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php  $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'servicios-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
@@ -33,10 +33,11 @@
 		    <?php } ?>	
 	</select>
 
+	<?php $model->ser_descripcion='TARIFA';  ?>
 	<div class="">
-		<?php echo $form->labelEx($model,'ser_descripcion'); ?>
-		<?php echo $form->textArea($model,'ser_descripcion',array('size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Lavado del vehiculo, no incluye encerado")); ?>
-		<?php echo $form->error($model,'ser_descripcion'); ?>
+		<?php //echo $form->labelEx($model,'ser_descripcion'); ?>
+		<?php //echo $form->textArea($model,'ser_descripcion',array('size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Nueva tarifa")); ?>
+		<?php //echo $form->error($model,'ser_descripcion'); ?>
 	</div>
 
 	<div class="">

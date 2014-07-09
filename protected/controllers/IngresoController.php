@@ -102,7 +102,16 @@ class IngresoController extends Controller
 					//return $datos;
 				}
 				if($opcion == 2){
-					$datos = Ingreso::model()->consultaCP($patente);
+					$prueba = VehiculoAutorizado::model()->search();
+					$b = 0;
+					$datos = null;
+					foreach ($prueba as $value) {
+						if($patente == $value['v_patente'])
+							$b = 1;				
+					}
+					if($b == 1){
+						$datos = Ingreso::model()->consultaCP($patente);
+					}
 					$this->render('viewCCP',array(
 						'datos'=>$datos,));
 					//return $datos;

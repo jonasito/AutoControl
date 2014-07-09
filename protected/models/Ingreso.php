@@ -113,6 +113,7 @@ class Ingreso extends CActiveRecord
 	    $servi=Ingreso::model()->findAll($criteria);
 	    $maximo=Administrador::model()->maximo();
 
+	    $libre;
 	    $b=0;$c=0;
 	    for ($i=1; $i <= $maximo; $i++) { 
 	    	foreach ($servi as $value) {

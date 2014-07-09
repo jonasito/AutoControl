@@ -208,7 +208,7 @@ class ClientePremiumController extends Controller
 	}
 
 	public function solo_letras($cadena){ 
-		$permitidos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "; 
+		$permitidos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ "; 
 		for ($i=0; $i<strlen($cadena); $i++){ 
 		if (strpos($permitidos, substr($cadena,$i,1))===false){ 
 		//no es válido; 

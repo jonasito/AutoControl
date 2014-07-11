@@ -35,7 +35,7 @@
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_valor'); ?>
-		<?php echo $form->textField($model,'ser_valor',array('placeholder'=>"Ej: 10000")); ?>
+		<?php echo $form->textField($model,'ser_valor',array('class'=>'span3','placeholder'=>"Ej: 10000")); ?>
 		<?php echo $form->error($model,'ser_valor'); ?>
 	</div>
 
@@ -48,7 +48,7 @@
 		   	'attribute'=>'ser_fecha_inicio',
 		   	'value'=>$model->ser_fecha_inicio,
 		   	'language' => 'es',
-		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'htmlOptions' => array('class'=>'span3','style'=>'height:20px;'),
 		   	'options'=>array(
 		    'autoSize'=>true,
 		    'defaultDate'=>$model->ser_fecha_inicio,
@@ -74,7 +74,7 @@
 		   	'attribute'=>'ser_fecha_termino',
 		   	'value'=>$model->ser_fecha_termino,
 		   	'language' => 'es',
-		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'htmlOptions' => array('class'=>'span3','style'=>'height:20px;'),
 		   	'options'=>array(
 		    'autoSize'=>true,
 		    'defaultDate'=>$model->ser_fecha_termino,

@@ -1,22 +1,25 @@
 
 <h1>Información a cliente</h1>
-<div class="well", style='background-color: #FEEBC1'>
+<!--div class="well", style='background-color: #FEEBC1'-->
+<div>
 <?php
 
 $this->breadcrumbs=array(
     //'Info Cliente',
 );
 ?>
-<div class"portlet-content">
-    <?php $this->widget('bootstrap.widgets.TbButton', array(
-            'label'=>'Ver disponibilidad',
-            'type'=>'danger',
-            'htmlOptions'=>array(
-                'data-toggle'=>'modal',
-                'data-target'=>'#myModal',
-            ),
-    )); ?>
-</div>
+
+<?php $this->widget('bootstrap.widgets.TbMenu', array(
+    'type'=>'tabs', // '', 'tabs', 'pills' (or 'list')
+    'stacked'=>false, // whether this is a stacked menu
+    'items'=>array(
+        array('label'=>'Ver tarifas', 'url'=>array('/ingreso/consulta_cliente')),
+        array('label'=>'Consulta cliente', 'url'=>array('/ingreso/cliente'), 'active'=>true),
+        //array('label'=>'Ver disponibilidad', 'url'=>array('/servicios/estacionamiento')),
+    ),
+)); ?>
+
+
 
 
 <?php
@@ -31,7 +34,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
     <label>Patente</label>
     
-    <input name="numero" type="text" placeholder="Ej: AA1111">   
+    <input name="numero" class="span3" type="text" placeholder="Ej: AA1111">   
 
     <div class="radio">
       <label>
@@ -71,3 +74,12 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     ); ?>
 
 </div>
+
+<br>
+    <br>
+    <br>
+    <br>
+<br>
+    <br>
+    <br>
+    <br>

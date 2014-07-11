@@ -28,7 +28,7 @@ class IngresoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','disponibilidad','cliente'),
+				'actions'=>array('index','view','disponibilidad','cliente','consulta_cliente'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -43,6 +43,9 @@ class IngresoController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+	public function actionConsulta_cliente(){
+		$this->render('consulta_cliente');
 	}
 
 	public function actionDisponibilidad()

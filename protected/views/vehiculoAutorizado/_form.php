@@ -43,7 +43,7 @@
 
 	<div class="">
 		<?php echo $form->labelEx($model,'v_patente'); ?>
-		<?php echo $form->textField($model,'v_patente',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'v_patente',array('class'=>'span3','size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'v_patente'); ?>
 	</div>
 
@@ -56,3 +56,12 @@
 
 </div><!-- form -->
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

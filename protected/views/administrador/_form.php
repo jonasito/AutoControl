@@ -23,25 +23,25 @@ Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl.'/JS/r
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_rut'); ?>
-		<?php echo $form->textField($model,'admin_rut',array('size'=>12,'maxlength'=>12,'placeholder'=>'Ej: 111111111')); ?>
+		<?php echo $form->textField($model,'admin_rut',array('class'=>'span3','size'=>12,'maxlength'=>12,'placeholder'=>'Ej: 111111111')); ?>
 		<?php echo $form->error($model,'admin_rut'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_nombre'); ?>
-		<?php echo $form->textField($model,'admin_nombre',array('size'=>50,'maxlength'=>50,'placeholder'=>'Ej: Juan')); ?>
+		<?php echo $form->textField($model,'admin_nombre',array('class'=>'span3','size'=>50,'maxlength'=>50,'placeholder'=>'Ej: Juan')); ?>
 		<?php echo $form->error($model,'admin_nombre'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_apellido'); ?>
-		<?php echo $form->textField($model,'admin_apellido',array('size'=>50,'maxlength'=>50,'placeholder'=> "Ej: Pérez")); ?>
+		<?php echo $form->textField($model,'admin_apellido',array('class'=>'span3','size'=>50,'maxlength'=>50,'placeholder'=> "Ej: Pérez")); ?>
 		<?php echo $form->error($model,'admin_apellido'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'admin_contraseña'); ?>
-		<?php echo $form->textField($model,'admin_contraseña',array('type'=>'password', 'size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'admin_contraseña',array('class'=>'span3','type'=>'password', 'size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'admin_contraseña'); ?>
 	</div>
 

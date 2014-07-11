@@ -21,19 +21,19 @@
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_nombre'); ?>
-		<?php echo $form->textField($model,'ser_nombre',array('size'=>50,'maxlength'=>50,'placeholder'=>"Ej: Lavado del vehiculo")); ?>
+		<?php echo $form->textField($model,'ser_nombre',array('class'=>'span3','size'=>50,'maxlength'=>50,'placeholder'=>"Ej: Lavado del vehiculo")); ?>
 		<?php echo $form->error($model,'ser_nombre'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_descripcion'); ?>
-		<?php echo $form->textArea($model,'ser_descripcion',array('size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Lavado del vehiculo, no incluye encerado")); ?>
+		<?php echo $form->textArea($model,'ser_descripcion',array('class'=>'span3','size'=>60,'maxlength'=>100,'placeholder'=>"Ej: Lavado del vehiculo, no incluye encerado")); ?>
 		<?php echo $form->error($model,'ser_descripcion'); ?>
 	</div>
 
 	<div class="">
 		<?php echo $form->labelEx($model,'ser_valor'); ?>
-		<?php echo $form->textField($model,'ser_valor',array('placeholder'=>"Ej: 10000")); ?>
+		<?php echo $form->textField($model,'ser_valor',array('class'=>'span3','placeholder'=>"Ej: 10000")); ?>
 		<?php echo $form->error($model,'ser_valor'); ?>
 	</div>
 
@@ -46,7 +46,7 @@
 		   	'attribute'=>'ser_fecha_inicio',
 		   	'value'=>$model->ser_fecha_inicio,
 		   	'language' => 'es',
-		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'htmlOptions' => array('class'=>'span3','style'=>'height:20px;'),
 		   	'options'=>array(
 		    'autoSize'=>true,
 		    'defaultDate'=>$model->ser_fecha_inicio,
@@ -72,7 +72,7 @@
 		   	'attribute'=>'ser_fecha_termino',
 		   	'value'=>$model->ser_fecha_termino,
 		   	'language' => 'es',
-		   	'htmlOptions' => array('style'=>'height:20px;'),
+		   	'htmlOptions' => array('class'=>'span3','style'=>'height:20px;'),
 		   	'options'=>array(
 		    'autoSize'=>true,
 		    'defaultDate'=>$model->ser_fecha_termino,
